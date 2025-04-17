@@ -1,0 +1,47 @@
+_Une aventure pour cinq personnages de niveau 5._
+
+Dans cet arc, suite à une visite spectrale à l'Auberge de l'Eau Bleue ou à un marché prudent au manoir du Baron, Victor Vallakovich demande aux joueurs de l'aider à restaurer l'âme de Stella Wachter dans son corps en trouvant un moyen d'accéder au Plan Éthéré, où son esprit est piégé. Pour ce faire, les joueurs doivent aider Victor à obtenir la pierre de cœur d'une **sorcière de la nuit** avant la nuit de la pleine lune, qui aura lieu le sixième jour après l'arrivée des joueurs à Vallaki.
+
+Si les joueurs acceptent la demande de Victor, il leur dit que Stella, depuis sa place dans le Plan Éthéré, a vu une **sorcière de la nuit** s'attaquer aux rêves de plusieurs membres du camp de réfugiés barovien. Il leur conseille de visiter le camp pour enquêter sur l'emplacement de la sorcière pendant qu'il prépare les rituels nécessaires pour transporter les joueurs au Plan Éthéré et rendre l'âme de Stella à son corps.
+
+Dans le camp de réfugiés, les joueurs peuvent en apprendre davantage sur la marchande Morgantha, qui a régulièrement vendu des pâtisseries de rêve aux réfugiés et à plusieurs habitants de Vallaki depuis l'arrivée des réfugiés il y a près de trois mois. Pendant qu'ils sont là, les joueurs peuvent également rencontrer Franz, un réfugié veuf qui souffre d'une maladie débilitante depuis deux nuits. Franz avoue aux joueurs qu'il a vendu ses enfants, Myrtle et Feodor, à Morgantha il y a deux jours pour payer ses rêves, et qu'il souffre maintenant de la pénitence de ses péchés. Les joueurs peuvent apprendre des réfugiés que Morgantha n'a pas visité la ville depuis que Franz lui a vendu ses enfants.
+
+Peu après avoir parlé avec Franz, les joueurs reçoivent un sort de *message* de Victor les invitant à retourner au grenier du manoir du Baron. Là, Victor leur propose deux chemins pour obtenir la pierre de cœur de la sorcière de la nuit : ils peuvent négocier avec elle pour l'obtenir, ou ils peuvent tenter de la sceller dans un cercle de confinement puis la tuer. Si les joueurs choisissent cette dernière option, Victor leur dit qu'il aura besoin d'un jour supplémentaire pour rechercher le cercle de confinement avant qu'ils ne puissent partir pour le repaire de Morgantha.
+
+Lorsque les joueurs reviennent le lendemain, Victor leur annonce avec anxiété qu'il n'a pas trouvé de moyen d'effectuer le rituel de confinement. Cependant, Stella peut informer le groupe qu'un cercle similaire de taille énorme entoure l'intégralité de Wachterhaus, que Stella a vu en explorant à travers le Plan Éthéré.
+
+Si les joueurs demandent l'aide de Lady Wachter, elle les aide uniquement s'ils ont déjà gagné sa faveur en tuant Izek Strazni, ou s'ils peuvent la persuader d'abaisser le cercle de confinement autour de Wachterhaus pour permettre à Stella de communiquer sa présence. Sinon, Lady Wachter suppose qu'ils et Victor se moquent cruellement d'elle et les renvoie avec dégoût.
+
+Si les joueurs obtiennent avec succès l'aide de Lady Wachter, elle et quatre de ses **fanatiques du culte** rejoignent les joueurs pour un voyage vers le repaire de Morgantha à Old Bonegrinder. Lady Wachter avertit les joueurs qu'ils devront obtenir les noms de toutes les sorcières dans le moulin pour les lier, de peur que des membres du convent ne s'échappent pour l'attaquer elle ou ses cultistes. Une fois que les joueurs ont obtenu les noms des filles de Morgantha (et, espérons-le, sauvé les enfants emprisonnés à l'intérieur du moulin), Bella Sunbane et Offalia Wormwiggle, Lady Wachter mène ses cultistes à créer un cercle de confinement énorme qui lie les **sorcières de la nuit** au Plan Matériel, permettant aux joueurs et à Victor de les détruire.
+
+Si les joueurs échouent à obtenir l'aide de Lady Wachter et choisissent plutôt de négocier avec Morgantha pour un prêt de sa pierre de cœur, Morgantha accepte de la prêter aux joueurs à condition qu'ils promettent de livrer plus tard une *sangsue d'âme* au bureau du chambellan de Strahd, Rahadin, dont l'âme tordue est convoitée par Morgantha. En garantie, Morgantha prend les rêves des joueurs, les empêchant de bénéficier d'un long repos s'ils ne remplissent pas la demande de Morgantha dans les treize jours suivants.
+
+Si les joueurs obtiennent avec succès une pierre de cœur par assaut ou négociation, Victor envoie le groupe—et Lady Wachter, si elle est présente—dans le Plan Éthéré pour effectuer le rituel et défendre l'esprit de Stella contre une marée d'esprits voraces désireux de prendre son corps sans âme pour eux-mêmes. La horde, cependant, n'est pas seule, et leur chef—un **orateur de potence** sadique dominé par l'esprit de Leo Dilisnya—porte une ancienne inimitié envers la maison de Wachter...
+
+> [!lore]+ **Le Destin de Stella Wachter**
+>
+> Il y a trois ans, Victor a trouvé un grimoire dans la bibliothèque de son père, comme décrit dans **N3t. Atelier de Victor** (p. 109). Ce n'était cependant pas n'importe quel grimoire—c'était le grimoire perdu du liche Khazan lui-même, longtemps pensé détruit dans l'accident qui avait conduit à la mort de Khazan. Victor a étudié ses secrets intensément, utilisant les notes précises de Khazan et son propre intellect puissant pour maîtriser de nombreux sorts à l'intérieur.
+> 
+> Il y a six mois, Victor a rencontré Stella Wachter, la plus jeune enfant de Lady Fiona Wachter, en lançant des pierres au bord du Lac Zarovich. Stella et Victor ont été surpris de découvrir qu'ils partageaient un intérêt commun pour la magie, les mythes et la philosophie. Malgré la désapprobation claire de leurs parents, les deux sont rapidement devenus amis.
+> 
+> Après avoir fait jurer à Stella de garder le secret, Victor lui a timidement montré son grimoire et une partie de la magie qu'il pouvait réaliser. Stella était fascinée et s'est immédiatement portée volontaire pour servir d'assistante de recherche, une offre qui a laissé Victor stupéfait et flatté.
+> 
+> Lorsque Strahd s'est réveillé de son hibernation, Victor et Stella ont convenu qu'échapper à sa tyrannie était impératif. (Victor espérait également une opportunité d'échapper à l'emprise de ses parents, tandis que Stella espérait emmener sa famille avec elle de Barovia.) Les deux se sont lancés ensemble dans un nouveau projet de recherche : la construction d'un cercle de téléportation capable de s'échapper de Barovia.
+> 
+> Il y a dix semaines, leur prototype de cercle de téléportation était terminé. Après que les deux aient effectué quelques expériences mineures en utilisant des lapins morts-vivants que Victor avait animés à partir d'os d'animaux, Stella a insisté avec enthousiasme pour un essai en direct, humain, et s'est portée volontaire pour y aller en premier. Victor l'a fait à contrecœur—et la tragédie a frappé.
+> 
+> Ni Stella ni Victor ne pouvaient le savoir, mais les Brumes de Barovia formaient une barrière métaphysique unique contre le cercle de téléportation de Victor. Le sort a échoué—et le contrecoup psychique a brièvement exposé l'âme de Stella aux énergies brutes du Plan Éthéré.
+> 
+> Là, l'esprit vengeur de Leo Dilisnya, un **orateur de potence** attiré par le phare magique du sort de Victor, a senti la présence de son ancien ennemi et a frappé, séparant l'âme de Stella de son corps.
+> 
+> Avant que Leo ne puisse la tuer, cependant, le fantôme d'Erasmus van Richten l'a rapidement emportée, la cachant à la vue.
+> 
+> De retour sur le Plan Matériel, lorsque la fumée et la lumière se sont dissipées, Victor a vu Stella se tenir mollement au centre du cercle, ses yeux ternes et non réactifs.
+> 
+> Terrifié que son père puisse découvrir les capacités magiques de Victor—ou, pire, blâmer Victor pour le sort de Stella—Victor lui a dit qu'elle était devenue catatonique sans raison apparente. Vargas, mécontent de la présence de Stella dès le début, était trop heureux d'avoir une excuse pour se débarrasser de "la fille Wachter", et a ordonné à Izek de la ramener immédiatement à Wachterhaus. Fiona était horrifiée par le sort de Stella et a commencé à comploter la chute de la famille Vallakovich dans une fureur silencieuse.
+> 
+> Victor a passé deux semaines rongé par la culpabilité et le chagrin avant que, étrangement, l'un des serviteurs ne mentionne avoir vu un esprit ressemblant à Stella dans le miroir du salon de sa mère. C'est à travers le *miroir spirituel* que Victor a appris que l'âme de Stella vivait encore dans le Plan Éthéré—et c'est à travers ce miroir, en communiquant par signes de main et lecture labiale, que les deux—désormais aidés par le fantôme d'Erasmus van Richten—ont commencé à travailler pour restaurer l'âme de Stella dans son corps.
+> 
+> Depuis lors, Victor a tenté rapidement d'améliorer ses capacités magiques, soit pour réutiliser d'une manière ou d'une autre le *cercle de téléportation* défectueux pour restaurer l'âme de Stella, soit pour devenir suffisamment puissant pour lancer le sort de haut niveau _éthéréalité_ dans le grimoire de Khazan.
+> 
+> Cependant, Victor, Stella et Erasmus ont récemment réalisé qu'ils manquaient de temps. Le Plan Éthéré est plein d'autres esprits errants, dont beaucoup sont bien moins amicaux que Stella elle-même, et Erasmus ne peut pas la garder en sécurité pour toujours. Pire encore, l'esprit de Stella semble lentement s'effacer, attiré de plus en plus loin par l'attraction du Plan Éthéré chaque jour qui passe. Si son âme n'est pas rapidement rendue à son corps, Stella pourrait se perdre—pour toujours.

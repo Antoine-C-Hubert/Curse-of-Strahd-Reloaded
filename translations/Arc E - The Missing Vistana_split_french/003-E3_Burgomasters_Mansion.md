@@ -1,0 +1,6 @@
+# E3. Manoir du Bourgmestre
+<span class="citation"><em>Cette scène se déroule dans le Chapitre 5 : Zone N3.</em></span>
+
+Le manoir du bourgmestre est en grande partie tel que décrit dans <span class="citation">N3. Manoir du Bourgmestre (p. 103)</span>. Cependant, le miroir magique dans <span class="citation">N3p. Robe de Mariée et Miroir Spirituel (p. 108)</span> a été modifié et déplacé vers <span class="citation">N3t. Atelier de Victor (p. 109)</span>. Voir [[#E3c. Parler avec Victor]] ci-dessous, ou [[Arc H - L'Âme Perdue]] pour plus d'informations sur le miroir.
+
+Si les joueurs visitent ouvertement le manoir du bourgmestre, ils sont accueillis par Clavdia, la servante du Baron, et conduits au salon comme décrit dans <span class="citation">N3. Manoir du Bourgmestre (p. 103)</span> et <span class="citation">N3e. Salon (p. 106)</span>. Le Baron arrive pour leur parler quelques minutes plus tard, accompagné de ses jumeaux **mastiffs** nommés Fang et Claw, comme décrit dans **N3l. Bibliothèque (p. 107)**.

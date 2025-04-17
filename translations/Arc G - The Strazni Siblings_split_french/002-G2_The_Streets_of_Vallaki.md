@@ -1,0 +1,3 @@
+# G2. Les Rues de Vallaki
+
+Un jour après sa visite à l'Auberge de l'Eau Bleue, Izek ordonne aux gardes de la ville de commencer à publier des affiches demandant des informations concernant l'emplacement d'une femme correspondant à la description d'Ireena. Chaque affiche inclut un croquis qui correspond approximativement à l'apparence d'Ireena et offre une récompense de cinq pièces d'or pour toute information remise à Izek Strazni au manoir du Baron.

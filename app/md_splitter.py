@@ -37,8 +37,15 @@ def split_markdown_file(file_path):
     level1_pattern = r'(?m)^# (.+?)$'
     level1_matches = list(re.finditer(level1_pattern, content))
     
+    # For files with no level 1 headers, create a single file with the filename as the header
     if not level1_matches:
-        print(f"No level 1 headers found in {file_path}")
+        print(f"No level 1 headers found in {file_path}. Creating a single file with the document's name as title.")
+        intro_file_path = os.path.join(output_dir, "000-Introduction.md")
+        with open(intro_file_path, 'w', encoding='utf-8') as f:
+            # Add original filename as main title
+            f.write(f"# {file_name_no_ext}\n\n")
+            f.write(content)
+        print(f"Created {intro_file_path}")
         return
     
     # Check if there's content before the first heading

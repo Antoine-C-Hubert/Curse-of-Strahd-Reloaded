@@ -11,194 +11,105 @@ The complete translation workflow follows these steps:
 3. **Concatenate** translated files → `translations/translated_grouped/` 
 4. **Generate PDFs** from translated files → `translations/pdf/`
 
-You can use individual Python scripts for each step or the unified shell scripts.
+## Unified Script: run.sh
 
-## Python Scripts (Direct Use)
+The `run.sh` script provides a single, unified interface for handling the entire translation workflow from markdown to PDF generation.
+
+```bash
+Usage: ./scripts/run.sh [OPTIONS] <markdown_file>
+
+Options:
+  -h, --help               Show this help message
+  -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)
+                           Default: all
+  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)
+  -c, --css FILE           Specify CSS file for PDF styling (default: publish.css)
+  -o, --output FILE        Specify output PDF file name (without extension)
+```
+
+### Examples
+
+**Complete workflow** (split, translate, concatenate, PDF generation):
+
+```bash
+./scripts/run.sh "Act III - The Broken Land/Act III Summary.md"
+```
+
+**Run specific steps**:
+
+```bash
+# Only split the file
+./scripts/run.sh -s split "Act III - The Broken Land/Act III Summary.md"
+
+# Only translate (requires previous split)
+./scripts/run.sh -s translate "Act III - The Broken Land/Act III Summary.md"
+
+# Only concatenate (requires previous translation)
+./scripts/run.sh -s concat "Act III - The Broken Land/Act III Summary.md"
+
+# Only generate PDF (requires previous concatenation)
+./scripts/run.sh -s pdf "Act III - The Broken Land/Act III Summary.md"
+```
+
+**Custom options**:
+
+```bash
+# Use a different translation model
+./scripts/run.sh -m gpt-3.5-turbo "Act III - The Broken Land/Act III Summary.md"
+
+# Use a custom CSS file for PDF styling
+./scripts/run.sh -c custom.css "Act III - The Broken Land/Act III Summary.md"
+
+# Specify a custom output name for the PDF
+./scripts/run.sh -o "ActIII_French" "Act III - The Broken Land/Act III Summary.md"
+```
+
+## Individual Python Scripts
+
+You can also use the underlying Python scripts directly if needed:
 
 ### app/md_splitter.py
 
 Splits a markdown file into smaller sections based on header levels.
 
 ```bash
-Usage: python app/md_splitter.py <markdown_file> <output_directory>
+python app/md_splitter.py <markdown_file>
 ```
 
-**Example workflow**:
-```bash
-# Create required directories
-mkdir -p translations/splits/
-
-# Split a markdown file (e.g., from Act IV)
-python app/md_splitter.py "Act IV - Secrets of the Ancient/Arc S - A Sword of Sunlight.md" "translations/splits/"
-
-# This creates:
-# - translations/splits/Arc S - A Sword of Sunlight_split/ (directory with all split files)
-# - Each file is numbered and organized by headers
-```
+Files are saved to `translations/splits/<filename>/`.
 
 ### app/md_translator.py
 
 Translates markdown files from English to French using OpenAI API.
 
 ```bash
-Usage: python app/md_translator.py <input_directory> [output_directory]
+python app/md_translator.py <input_directory> [output_directory] [model]
 ```
 
-**Example workflow**:
-```bash
-# Create required directories
-mkdir -p translations/splits_translated/
-
-# Translate the split files
-python app/md_translator.py "translations/splits/Arc S - A Sword of Sunlight_split" "translations/splits_translated/"
-
-# This creates:
-# - translations/splits_translated/Arc S - A Sword of Sunlight_split/ (with translated files)
-# - Each file maintains the same structure but with French content
-```
+By default, reads from `translations/splits/` and outputs to `translations/splits_translated/`.
 
 ### app/md_concatenator.py
 
 Reassembles translated split files back into complete documents.
 
 ```bash
-Usage: python app/md_concatenator.py <input_directory> [output_directory]
+python app/md_concatenator.py [base_directory]
 ```
 
-**Example workflow**:
-```bash
-# Create required directories
-mkdir -p translations/translated_grouped/
-
-# Concatenate the translated files
-python app/md_concatenator.py "translations/splits_translated/" "translations/translated_grouped/"
-
-# This creates:
-# - translations/translated_grouped/Arc S - A Sword of Sunlight_french.md (assembled translation)
-```
+By default, reads from `translations/splits_translated/` and outputs to `translations/translated_grouped/`.
 
 ### app/md_to_pdf.py
 
 Converts markdown files to PDF format with optional styling.
 
 ```bash
-Usage: python app/md_to_pdf.py [OPTIONS] input
+python app/md_to_pdf.py [OPTIONS] input
 
 Options:
-  -h, --help                Show this help message
   -o, --output OUTPUT       Output PDF file or directory
   -s, --style STYLE         CSS stylesheet for PDF styling
   -r, --recursive           Process directories recursively
   -m, --merge               Merge all input files into a single PDF
-```
-
-**Example workflow**:
-```bash
-# Create required directories
-mkdir -p translations/pdf/
-
-# Convert a translated file to PDF
-python app/md_to_pdf.py -s publish.css "translations/translated_grouped/Arc S - A Sword of Sunlight_french.md" -o "translations/pdf/Arc_S_french.pdf"
-
-# Convert a directory of translated files to PDFs
-python app/md_to_pdf.py -s publish.css "translations/translated_grouped/" -o "translations/pdf/" -r
-
-# Create a merged PDF from all files in a translated directory
-python app/md_to_pdf.py -s publish.css "translations/splits_translated/Arc S - A Sword of Sunlight_split" -o "translations/pdf/Arc_S_french_merged.pdf" -r -m
-```
-
-## Shell Scripts (Simplified Use)
-
-### translate_all.sh
-
-A comprehensive script that handles the entire translation workflow.
-
-```bash
-Usage: ./scripts/translate_all.sh [OPTIONS] <file or directory>
-
-Options:
-  -h, --help                Show this help message
-  -s, --split-only          Only split the markdown file(s)
-  -t, --translate-only      Only translate the split files
-  -c, --concatenate-only    Only concatenate the translated files
-  -m, --model MODEL         Specify OpenAI model (default: gpt-4o)
-  -o, --output-dir DIR      Specify output directory for translated files
-```
-
-**Example workflow**:
-```bash
-# Complete translation workflow (split, translate, concatenate)
-./scripts/translate_all.sh "Act IV - Secrets of the Ancient/Arc S - A Sword of Sunlight.md"
-
-# Only split a markdown file (output to translations/splits/)
-./scripts/translate_all.sh -s "Act IV - Secrets of the Ancient/Arc S - A Sword of Sunlight.md"
-
-# Only translate already split files 
-./scripts/translate_all.sh -t "translations/splits/Arc S - A Sword of Sunlight_split"
-
-# Only concatenate already translated files
-./scripts/translate_all.sh -c "translations/splits_translated/"
-```
-
-### pdf_export.sh
-
-Converts markdown files to PDF format.
-
-```bash
-Usage: ./scripts/pdf_export.sh [OPTIONS] <file or directory>
-
-Options:
-  -h, --help                Show this help message
-  -o, --output PATH         Specify output file or directory
-  -s, --style CSS_FILE      Specify a CSS stylesheet for PDF styling
-  -r, --recursive           Process directories recursively
-  -m, --merge               Merge all input files into a single PDF
-  -a, --all                 Export all content to PDFs (organized by section)
-  -f, --french              Process French translations instead of English originals
-```
-
-**Example workflow**:
-```bash
-# Convert a translated markdown file to PDF
-./scripts/pdf_export.sh -f "translations/translated_grouped/Arc S - A Sword of Sunlight_french.md" -o "translations/pdf/Arc_S_french.pdf"
-
-# Convert all files in a translated directory to PDFs
-./scripts/pdf_export.sh -f "translations/translated_grouped/" -o "translations/pdf/" -r
-
-# Merge all files in a translated directory into a single PDF
-./scripts/pdf_export.sh -f -m "translations/translated_grouped/" -o "translations/pdf/All_Translations.pdf"
-
-# Export all French translations to PDFs (organized by section)
-./scripts/pdf_export.sh -f -a
-```
-
-## Complete End-to-End Example
-
-Here's a complete workflow for translating and generating PDFs from an Act IV file:
-
-```bash
-# 1. Ensure required directories exist
-mkdir -p translations/splits/ translations/splits_translated/ translations/translated_grouped/ translations/pdf/
-
-# 2. Split the markdown file
-python app/md_splitter.py "Act IV - Secrets of the Ancient/Arc S - A Sword of Sunlight.md" "translations/splits/"
-
-# 3. Translate the split files
-python app/md_translator.py "translations/splits/Arc S - A Sword of Sunlight_split" "translations/splits_translated/"
-
-# 4. Concatenate the translated files
-python app/md_concatenator.py "translations/splits_translated/" "translations/translated_grouped/"
-
-# 5. Generate PDF from the translated file
-python app/md_to_pdf.py -s publish.css "translations/translated_grouped/Arc S - A Sword of Sunlight_french.md" -o "translations/pdf/Arc_S_french.pdf"
-
-# OR use the shell scripts for a simpler workflow:
-
-# Steps 1-4 (split, translate, concatenate)
-./scripts/translate_all.sh "Act IV - Secrets of the Ancient/Arc S - A Sword of Sunlight.md"
-
-# Step 5 (generate PDF)
-./scripts/pdf_export.sh -f "translations/translated_grouped/Arc S - A Sword of Sunlight_french.md" -o "translations/pdf/Arc_S_french.pdf"
 ```
 
 ## Required Dependencies

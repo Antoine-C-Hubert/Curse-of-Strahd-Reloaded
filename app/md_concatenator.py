@@ -6,18 +6,28 @@ import sys
 from pathlib import Path
 from tqdm import tqdm
 
+# Set project root and translation paths
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(script_dir)
+TRANSLATIONS_DIR = os.path.join(project_root, "translations")
+SPLITS_TRANSLATED_DIR = os.path.join(TRANSLATIONS_DIR, "splits_translated")
+TRANSLATED_GROUPED_DIR = os.path.join(TRANSLATIONS_DIR, "translated_grouped")
+
 def concatenate_markdown_files(base_dir=None):
     """
     Find all folders starting with 'Act' or 'Arc', enter each folder,
     and concatenate all markdown files into a single file.
-    The concatenated file is saved outside the folder with the folder's name.
+    The concatenated file is saved to translations/translated_grouped/ with the folder's name.
     
     Args:
         base_dir (str, optional): Base directory to search for Act/Arc folders.
-                                 If None, uses the current directory.
+                                 If None, uses SPLITS_TRANSLATED_DIR.
     """
     if base_dir is None:
-        base_dir = os.getcwd()
+        base_dir = SPLITS_TRANSLATED_DIR
+    
+    # Create output directory if it doesn't exist
+    os.makedirs(TRANSLATED_GROUPED_DIR, exist_ok=True)
         
     # Find all folders starting with Act or Arc
     act_arc_pattern = os.path.join(base_dir, '**/[Aa][cr][tc]*')
@@ -32,8 +42,7 @@ def concatenate_markdown_files(base_dir=None):
     # Process each folder
     for folder in matching_folders:
         folder_name = os.path.basename(folder)
-        parent_dir = os.path.dirname(folder)
-        output_file = os.path.join(parent_dir, f"{folder_name}.md")
+        output_file = os.path.join(TRANSLATED_GROUPED_DIR, f"{folder_name}.md")
         
         # Get all markdown files in the folder
         markdown_files = sorted(glob.glob(os.path.join(folder, "*.md")))
@@ -62,8 +71,10 @@ if __name__ == "__main__":
         if not os.path.isdir(base_dir):
             print(f"Error: Directory '{base_dir}' does not exist.")
             sys.exit(1)
+        print(f"Using custom base directory: {base_dir}")
         concatenate_markdown_files(base_dir)
     else:
+        print(f"Using default base directory: {SPLITS_TRANSLATED_DIR}")
         concatenate_markdown_files()
     
-    print("Concatenation complete.")
+    print(f"Concatenation complete. Files saved to {TRANSLATED_GROUPED_DIR}")

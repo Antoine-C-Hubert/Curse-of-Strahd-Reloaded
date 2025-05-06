@@ -5,6 +5,12 @@ import re
 import sys
 from pathlib import Path
 
+# Set project root and translation paths
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(script_dir)
+TRANSLATIONS_DIR = os.path.join(project_root, "translations")
+SPLITS_DIR = os.path.join(TRANSLATIONS_DIR, "splits")
+
 def split_markdown_file(file_path):
     """
     Split a markdown file into multiple files at each # and ## section.
@@ -23,8 +29,8 @@ def split_markdown_file(file_path):
     base_name = os.path.basename(file_path)
     file_name_no_ext = os.path.splitext(base_name)[0]
     
-    # Create output directory
-    output_dir = os.path.join(os.path.dirname(file_path), f"{file_name_no_ext}_split")
+    # Create output directory in the translations/splits/ folder
+    output_dir = os.path.join(SPLITS_DIR, file_name_no_ext)
     os.makedirs(output_dir, exist_ok=True)
     
     # Find all level 1 (# Title) sections
@@ -119,4 +125,7 @@ if __name__ == "__main__":
         sys.exit(1)
     
     split_markdown_file(file_path)
-    print(f"Splitting complete. Files saved in {os.path.splitext(file_path)[0]}_split directory.")
+    base_name = os.path.basename(file_path)
+    file_name_no_ext = os.path.splitext(base_name)[0]
+    output_dir = os.path.join(SPLITS_DIR, file_name_no_ext)
+    print(f"Splitting complete. Files saved in {output_dir} directory.")

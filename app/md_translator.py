@@ -17,6 +17,11 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
 load_dotenv(os.path.join(project_root, '.env'))
 
+# Set translation paths
+TRANSLATIONS_DIR = os.path.join(project_root, "translations")
+SPLITS_DIR = os.path.join(TRANSLATIONS_DIR, "splits")
+SPLITS_TRANSLATED_DIR = os.path.join(TRANSLATIONS_DIR, "splits_translated")
+
 def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
     """
     Translate markdown files from English to French using OpenAI's API.
@@ -26,9 +31,18 @@ def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
         output_dir (str, optional): Directory to save the translated files
         model (str, optional): OpenAI model to use for translation
     """
+    # If input_dir is just the folder name (not a full path), use SPLITS_DIR as the base
+    if not os.path.isabs(input_dir) and not input_dir.startswith('./'):
+        input_dir = os.path.join(SPLITS_DIR, input_dir)
+    
     # Create output directory if it doesn't exist
     if output_dir is None:
-        output_dir = input_dir + "_french"
+        # Get the folder name without the full path
+        folder_name = os.path.basename(os.path.normpath(input_dir))
+        output_dir = os.path.join(SPLITS_TRANSLATED_DIR, folder_name)
+    elif not os.path.isabs(output_dir):
+        # If output_dir is not absolute, put it in SPLITS_TRANSLATED_DIR
+        output_dir = os.path.join(SPLITS_TRANSLATED_DIR, output_dir)
     
     os.makedirs(output_dir, exist_ok=True)
     
@@ -133,14 +147,21 @@ def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print(f"Usage: {sys.argv[0]} <input_directory> [output_directory] [model]")
-        print(f"Example: {sys.argv[0]} 'Arc_C_-_Into_the_Valley_split'")
-        print(f"Example with options: {sys.argv[0]} 'Arc_C_-_Into_the_Valley_split' 'custom_output_dir' 'gpt-4o'")
+        print(f"Example: {sys.argv[0]} 'Arc C - Into the Valley'")
+        print(f"The input directory will be looked up in translations/splits/")
+        print(f"The output will be saved to translations/splits_translated/ by default")
+        print(f"Example with options: {sys.argv[0]} 'Arc C - Into the Valley' 'custom_output_dir' 'gpt-4o'")
         sys.exit(1)
     
     input_dir = sys.argv[1]
     
-    if not os.path.isdir(input_dir):
-        print(f"Error: Directory '{input_dir}' does not exist.")
+    # Check if input directory exists (either as absolute path or in SPLITS_DIR)
+    input_path = input_dir
+    if not os.path.isabs(input_dir) and not input_dir.startswith('./'):
+        input_path = os.path.join(SPLITS_DIR, input_dir)
+    
+    if not os.path.isdir(input_path):
+        print(f"Error: Directory '{input_path}' does not exist.")
         sys.exit(1)
     
     # Get output directory (optional)

@@ -10,6 +10,10 @@ from tqdm import tqdm
 from weasyprint import HTML, CSS
 from weasyprint.text.fonts import FontConfiguration
 
+# Define paths
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+TEMPLATES_DIR = os.path.join(PROJECT_ROOT, "templates")
+
 def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, recursive=False):
     """
     Convert a markdown file or all markdown files in a directory to PDF.
@@ -23,9 +27,23 @@ def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, 
     # Load CSS if provided
     css = None
     font_config = FontConfiguration()
-    if stylesheet_path and os.path.exists(stylesheet_path):
-        with open(stylesheet_path, 'r', encoding='utf-8') as css_file:
-            css = CSS(string=css_file.read(), font_config=font_config)
+    if stylesheet_path:
+        # Check if the stylesheet path exists directly
+        if os.path.exists(stylesheet_path):
+            css_path = stylesheet_path
+        # Check if it's in the templates directory
+        elif os.path.exists(os.path.join(TEMPLATES_DIR, os.path.basename(stylesheet_path))):
+            css_path = os.path.join(TEMPLATES_DIR, os.path.basename(stylesheet_path))
+        # Check if it's a filename without path
+        elif os.path.exists(os.path.join(TEMPLATES_DIR, stylesheet_path)):
+            css_path = os.path.join(TEMPLATES_DIR, stylesheet_path)
+        else:
+            print(f"Warning: CSS file not found: {stylesheet_path}")
+            css_path = None
+            
+        if css_path:
+            with open(css_path, 'r', encoding='utf-8') as css_file:
+                css = CSS(string=css_file.read(), font_config=font_config)
     
     # Function to convert a single file
     def convert_file(md_file_path, output_file_path=None):

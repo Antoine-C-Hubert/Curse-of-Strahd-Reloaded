@@ -204,7 +204,7 @@ run_all() {
 main() {
     local step="all"
     local model="gpt-4o"
-    local css_file="$PROJECT_ROOT/publish.css"
+    local css_file="$PROJECT_ROOT/templates/publish_two_columns.css"
     local output_name=""
     local file_path=""
     
@@ -225,14 +225,19 @@ main() {
                 ;;
             -c|--css)
                 css_file="$2"
-                if [ ! -f "$css_file" ]; then
-                    # Try resolving relative to project root
-                    if [ -f "$PROJECT_ROOT/$css_file" ]; then
-                        css_file="$PROJECT_ROOT/$css_file"
-                    else
-                        echo "Error: CSS file not found: $css_file"
-                        exit 1
-                    fi
+                # Check various locations for the CSS file
+                if [ -f "$css_file" ]; then
+                    # Absolute path or path relative to current directory
+                    css_file="$css_file"
+                elif [ -f "$PROJECT_ROOT/templates/$css_file" ]; then
+                    # CSS file in templates directory
+                    css_file="$PROJECT_ROOT/templates/$css_file"
+                elif [ -f "$PROJECT_ROOT/$css_file" ]; then
+                    # CSS file relative to project root
+                    css_file="$PROJECT_ROOT/$css_file"
+                else
+                    # Just pass the filename and let md_to_pdf.py handle it
+                    echo "Note: CSS file will be looked up in templates directory: $css_file"
                 fi
                 shift 2
                 ;;

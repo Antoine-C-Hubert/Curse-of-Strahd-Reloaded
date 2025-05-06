@@ -29,7 +29,7 @@ The repository contains four main Python scripts in the `/app` directory for han
    - Usage: `python app/md_to_pdf.py [OPTIONS] input`
    - Options:
      - `-o, --output OUTPUT`: Output PDF file or directory
-     - `-s, --style STYLE`: CSS stylesheet for PDF styling
+     - `-s, --style STYLE`: CSS stylesheet for PDF styling (in the templates directory)
      - `-r, --recursive`: Process directories recursively
      - `-m, --merge`: Merge all input files into a single PDF
 
@@ -45,7 +45,7 @@ Options:
   -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)
                            Default: all
   -m, --model MODEL        Specify OpenAI model (default: gpt-4o)
-  -c, --css FILE           Specify CSS file for PDF styling (default: publish.css)
+  -c, --css FILE           Specify CSS file for PDF styling (default: templates/publish_two_columns.css)
   -o, --output FILE        Specify output PDF file name (without extension)
 ```
 
@@ -71,15 +71,22 @@ Options:
 ./scripts/run.sh -s pdf "Act III - The Broken Land/Act III Summary.md"
 ```
 
-### Two-column PDF generation:
+### PDF generation with different layouts:
 
 ```bash
-# Generate two-column PDF using publish_two_columns.css
-./scripts/run.sh -s pdf -c publish_two_columns.css "Act III - The Broken Land/Act III Summary.md"
+# Generate PDF with default two-column layout
+./scripts/run.sh -s pdf "Act III - The Broken Land/Act III Summary.md"
+
+# Generate single-column PDF (override default)
+./scripts/run.sh -s pdf -c publish.css "Act III - The Broken Land/Act III Summary.md"
 
 # Generate PDF for multiple files with custom output name
-./scripts/run.sh -s pdf -c publish_two_columns.css -o "Complete_Campaign_Guide" "Act I - Into the Mists/Act I Summary.md" "Act II - The Shadowed Town/Act II Summary.md"
+./scripts/run.sh -s pdf -o "Complete_Campaign_Guide" "Act I - Into the Mists/Act I Summary.md" "Act II - The Shadowed Town/Act II Summary.md"
 ```
+
+The CSS files for styling are stored in the `templates/` directory:
+- `publish_two_columns.css` - Default two-column layout styling
+- `publish.css` - Single-column styling (use with `-c publish.css` option)
 
 ## Environment Setup
 
@@ -108,6 +115,7 @@ The repository is organized into:
 - **app** containing Python scripts for the translation and PDF generation workflow
 - **images** containing artwork for the campaign
 - **scripts** containing shell scripts like `run.sh` for automating workflows
+- **templates** containing CSS stylesheets for PDF generation
 - **translations** containing the following subdirectories:
   - **splits** - Original content split into smaller files for translation
   - **splits_translated** - Translated versions of the split files

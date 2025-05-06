@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 
+import glob
+import openai
 import os
 import sys
-import glob
 import time
-import json
-from pathlib import Path
-import openai
-from tqdm import tqdm
 from dotenv import load_dotenv
+from pathlib import Path
+from tqdm import tqdm
 
 # Set your OpenAI API key from environment variable
 # export OPENAI_API_KEY="your-api-key"
 
-load_dotenv('.env')
+# Load .env from project root
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(script_dir)
+load_dotenv(os.path.join(project_root, '.env'))
 
 def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
     """
@@ -130,8 +132,9 @@ def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print(f"Usage: {sys.argv[0]} <input_directory> [output_directory] [output_file]")
+        print(f"Usage: {sys.argv[0]} <input_directory> [output_directory] [model]")
         print(f"Example: {sys.argv[0]} 'Arc_C_-_Into_the_Valley_split'")
+        print(f"Example with options: {sys.argv[0]} 'Arc_C_-_Into_the_Valley_split' 'custom_output_dir' 'gpt-4o'")
         sys.exit(1)
     
     input_dir = sys.argv[1]
@@ -142,9 +145,16 @@ if __name__ == "__main__":
     
     # Get output directory (optional)
     output_dir = None
-    if len(sys.argv) > 2:
+    if len(sys.argv) > 2 and sys.argv[2]:
         output_dir = sys.argv[2]
     
+    # Get model (optional)
+    model = "gpt-4o"
+    if len(sys.argv) > 3 and sys.argv[3]:
+        model = sys.argv[3]
+    
+    print(f"Using OpenAI model: {model}")
+    
     # Translate all files
-    french_dir = translate_markdown_files(input_dir, output_dir)
+    french_dir = translate_markdown_files(input_dir, output_dir, model)
     

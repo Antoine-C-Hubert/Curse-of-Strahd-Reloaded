@@ -10,20 +10,66 @@ The repository also includes translation scripts that help convert the English c
 
 ## Translation Tools
 
-The repository contains three main Python scripts in the `/translations` directory for handling markdown translation:
+The repository contains four main Python scripts in the `/app` directory for handling markdown translation and PDF generation:
 
-1. **md_splitter.py**: Splits large markdown files into smaller components for easier translation
-   - Usage: `python md_splitter.py <markdown_file>`
-   - Creates a directory named `<filename>_split` containing the split files
+1. **md_splitter.py**: Splits large markdown files into smaller sections based on header levels
+   - Usage: `python app/md_splitter.py <markdown_file>`
+   - Files are saved to `translations/splits/<filename>/`
 
 2. **md_translator.py**: Translates markdown files from English to French using OpenAI API
-   - Usage: `python md_translator.py <input_directory> [output_directory]`
+   - Usage: `python app/md_translator.py <input_directory> [output_directory] [model]`
+   - By default, reads from `translations/splits/` and outputs to `translations/splits_translated/`
    - Requires an OpenAI API key set as `OPENAI_API_KEY` environment variable
-   - Creates an output directory named `<input_directory>_french` by default
 
-3. **md_concatenator.py**: Reassembles split files into complete documents
-   - Usage: `python md_concatenator.py [base_directory]`
-   - Finds folders starting with "Act" or "Arc" and combines their markdown files
+3. **md_concatenator.py**: Reassembles translated split files back into complete documents
+   - Usage: `python app/md_concatenator.py [base_directory]`
+   - By default, reads from `translations/splits_translated/` and outputs to `translations/translated_grouped/`
+
+4. **md_to_pdf.py**: Converts markdown files to PDF format with optional styling
+   - Usage: `python app/md_to_pdf.py [OPTIONS] input`
+   - Options:
+     - `-o, --output OUTPUT`: Output PDF file or directory
+     - `-s, --style STYLE`: CSS stylesheet for PDF styling
+     - `-r, --recursive`: Process directories recursively
+     - `-m, --merge`: Merge all input files into a single PDF
+
+## Unified Script
+
+The repository includes a `run.sh` script in the `/scripts` directory that provides a single, unified interface for handling the entire translation workflow:
+
+```bash
+Usage: ./scripts/run.sh [OPTIONS] <markdown_file>
+
+Options:
+  -h, --help               Show this help message
+  -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)
+                           Default: all
+  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)
+  -c, --css FILE           Specify CSS file for PDF styling (default: publish.css)
+  -o, --output FILE        Specify output PDF file name (without extension)
+```
+
+### Complete workflow example:
+
+```bash
+./scripts/run.sh "Act III - The Broken Land/Act III Summary.md"
+```
+
+### Run specific steps:
+
+```bash
+# Only split the file
+./scripts/run.sh -s split "Act III - The Broken Land/Act III Summary.md"
+
+# Only translate (requires previous split)
+./scripts/run.sh -s translate "Act III - The Broken Land/Act III Summary.md"
+
+# Only concatenate (requires previous translation)
+./scripts/run.sh -s concat "Act III - The Broken Land/Act III Summary.md"
+
+# Only generate PDF (requires previous concatenation)
+./scripts/run.sh -s pdf "Act III - The Broken Land/Act III Summary.md"
+```
 
 ## Environment Setup
 
@@ -34,25 +80,12 @@ The repository contains three main Python scripts in the `/translations` directo
 
 2. Install the required Python dependencies:
    ```bash
-   pip install openai python-dotenv tqdm
+   pip install -r requirements.txt
    ```
 
-## Translation Workflow
-
-1. **Split a markdown file into smaller parts**:
-   ```bash
-   python translations/md_splitter.py "Act II Summary.md"
-   ```
-
-2. **Translate the split files**:
-   ```bash
-   python translations/md_translator.py "Act II Summary_split"
-   ```
-
-3. **Reassemble the translated files** (if needed):
-   ```bash
-   python translations/md_concatenator.py "translations"
-   ```
+Required Python packages:
+- For translation: `openai`, `python-dotenv`, `tqdm`
+- For PDF generation: `markdown`, `weasyprint`, `tqdm`
 
 ## Repository Structure
 
@@ -62,22 +95,33 @@ The repository is organized into:
 - **Chapter folders** with background information and setup materials
 - **Appendices** with reference materials like NPCs and items
 - **Introduction** with guide usage information and acknowledgments
+- **app** containing Python scripts for the translation and PDF generation workflow
 - **images** containing artwork for the campaign
-- **translations** containing scripts and translated content
+- **scripts** containing shell scripts like `run.sh` for automating workflows
+- **translations** containing the following subdirectories:
+  - **splits** - Original content split into smaller files for translation
+  - **splits_translated** - Translated versions of the split files
+  - **translated_grouped** - Reassembled translated files
+  - **pdf** - Final PDF outputs
 
-## Git Workflow
+## Translation Workflow
 
-When working on translations:
-1. Make changes on a feature branch (e.g., `french-translation`)
-2. Push changes regularly
-3. Create PRs targeting the `main` branch when complete
+The complete translation workflow follows these steps:
 
-## Python Formating
+1. **Split** markdown files → `translations/splits/`
+2. **Translate** split files → `translations/splits_translated/`
+3. **Concatenate** translated files → `translations/translated_grouped/` 
+4. **Generate PDFs** from translated files → `translations/pdf/`
 
-- Keep all imports at the top, 'import' first and then 'from' imports, in alphabetical order
+## Python Formatting
+
+- Keep all imports at the top
+- direct 'import' first, each in alphabetical order
+- then 'from ... import ...', each in alphabetical order
 
 ## Additional Notes
 
 - When translating content, be careful to preserve markdown formatting, character names, and D&D terminology
 - Follow the French translation system prompt guidelines in `md_translator.py` for consistent translations
 - The guide is designed to be read in Obsidian or similar markdown viewers
+- Use the unified `run.sh` script for the most efficient workflow

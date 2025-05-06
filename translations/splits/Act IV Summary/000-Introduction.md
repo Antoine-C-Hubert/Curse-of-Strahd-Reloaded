@@ -1,3 +1,5 @@
+# Act IV Summary
+
 In this act, which begins once the players have lit the beacon of Argynvostholt in [[Arc Q - A Shining Beacon]], the players must journey to the peak of Mt. Ghakis in order to find the long-lost *Sunsword* and uncover the secrets of the Fanes of Barovia. 
 
 Upon recruiting the dusk elf Kasimir Velikov and learning of his interest in the Amber Temple, the players set off along Tsolenka Pass in [[Arc R - Trials of the Mountain]], battling monsters, vengeful foes, and the mountain itself in order to reach their destinations. As they do, they are haunted each night by Strahd von Zarovich, who seeks to torment them with cruel, painful games. 

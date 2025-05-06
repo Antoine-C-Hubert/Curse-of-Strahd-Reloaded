@@ -1,3 +1,5 @@
+# Act II Summary
+
 In this act, the players are left to explore the shadowed town of Vallaki—a Barovian settlement that has found itself embroiled in tension, tragedy, and intrigue in the wake of Strahd's awakening.
 
 As the players seek to complete lingering obligations—escorting Ireena to St. Andral's Church in [[Arc D - St. Andral's Feast]] and delivering a toy to the Vistani child Arabelle in [[Arc E - The Missing Vistana]]—they'll meet new allies and enemies, including Victor Vallakovich, the son of Baron Vargas Vallakovich; Lady Fiona Wachter, the Baron's rival for power; Father Lucian Petrovich, the priest of St. Andral's Church; Luvash and Arrigal, the leaders of the Vallakian Vistani camp; and Dr. Rudolph van Richten, the veteran vampire hunter and lone survivor of Doru's rebellion.

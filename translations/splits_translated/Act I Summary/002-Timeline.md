@@ -4,7 +4,7 @@
 * [[Acte I - Dans les Brumes/Arc C - Dans la Vallée]] : Les joueurs reçoivent la lecture de Tarokka le 1 Neyavr, arrivent à Vallaki le 2 Neyavr, et rencontrent le Baron Vallakovich le matin du 3 Neyavr.
 
 > [!info]+ **Le Calendrier Barovien** 
-> L'année barovienne actuelle est 735 C.B. (Calendrier Barovien). Le calendrier barovien compte douze mois de 28 jours, qui sont nommés comme suit : <sup>1</sup>
+> L'année barovienne actuelle est 735 C.B. (Calendrier Barovien). Le calendrier barovien a douze mois de 28 jours, qui sont nommés comme suit : <sup>1</sup>
 > 
 > 
 | Mois  | Nom Barovien  | Nom Grégorien  |
@@ -24,4 +24,4 @@
 
 
 
-<sup>1</sup> Calendrier Barovien, *The Travelogue Wiki*, https://travelogue.fandom.com/wiki/Barovian_Calendar (dernier accès le 29 mars 2024).
+<sup>1</sup> Calendrier Barovien, *The Travelogue Wiki*, https://travelogue.fandom.com/wiki/Barovian_Calendar (dernière visite le 29 mars 2024).

@@ -71,6 +71,16 @@ Options:
 ./scripts/run.sh -s pdf "Act III - The Broken Land/Act III Summary.md"
 ```
 
+### Two-column PDF generation:
+
+```bash
+# Generate two-column PDF using publish_two_columns.css
+./scripts/run.sh -s pdf -c publish_two_columns.css "Act III - The Broken Land/Act III Summary.md"
+
+# Generate PDF for multiple files with custom output name
+./scripts/run.sh -s pdf -c publish_two_columns.css -o "Complete_Campaign_Guide" "Act I - Into the Mists/Act I Summary.md" "Act II - The Shadowed Town/Act II Summary.md"
+```
+
 ## Environment Setup
 
 1. Create a `.env` file in the root directory with your OpenAI API key:

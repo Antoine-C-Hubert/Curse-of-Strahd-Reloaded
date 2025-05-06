@@ -54,6 +54,16 @@ def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, 
             ]
         )
         
+        # Add page breaks before all h1 headers (# level) except the first one
+        if "<h1" in html_content:
+            # Find all h1 tags
+            parts = html_content.split("<h1")
+            # Reassemble with page breaks before h1s (except the first)
+            new_content = parts[0] + "<h1" + parts[1]
+            for part in parts[2:]:
+                new_content += '<div style="page-break-before: always;"></div><h1' + part
+            html_content = new_content
+        
         # Wrap HTML content in basic HTML document structure
         file_name = os.path.basename(md_file_path)
         title = os.path.splitext(file_name)[0]

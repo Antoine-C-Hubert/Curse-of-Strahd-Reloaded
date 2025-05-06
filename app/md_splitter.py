@@ -49,6 +49,8 @@ def split_markdown_file(file_path):
         if intro_content.strip():  # Only save if there's actual content
             intro_file_path = os.path.join(output_dir, "000-Introduction.md")
             with open(intro_file_path, 'w', encoding='utf-8') as f:
+                # Add original filename as main title
+                f.write(f"# {file_name_no_ext}\n\n")
                 f.write(intro_content)
             print(f"Created {intro_file_path}")
     

@@ -54,7 +54,7 @@ check_env_file() {
 check_dependencies() {
     python3 -c "import openai, dotenv, tqdm" 2>/dev/null || {
         echo "Error: Required Python packages not found."
-        echo "Please install them using: pip install openai python-dotenv tqdm"
+        echo "Please install them using: pip install -r requirements.txt"
         exit 1
     }
 }

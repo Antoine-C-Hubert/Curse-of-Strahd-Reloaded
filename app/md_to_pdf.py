@@ -150,7 +150,7 @@ def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, 
                 return 1
             return 0
         
-        # For a directory with the merge option, we need to combine all files first
+        # For a directory with the merge option, we generate individual PDFs and merge them
         pattern = os.path.join(file_path, "**/*.md") if recursive else os.path.join(file_path, "*.md")
         markdown_files = sorted(glob.glob(pattern, recursive=recursive))
         
@@ -158,28 +158,83 @@ def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, 
             print(f"No markdown files found in {file_path}")
             return 0
         
-        print(f"Merging {len(markdown_files)} markdown files into a single PDF")
+        print(f"Found {len(markdown_files)} markdown files to process")
         
-        # Combine all markdown content
-        combined_md = ""
-        for md_file in tqdm(markdown_files, desc="Reading files"):
-            with open(md_file, 'r', encoding='utf-8') as f:
-                content = f.read()
-                # Add a page break between files
-                combined_md += content + "\n\n<div style='page-break-after: always;'></div>\n\n"
+        # Create a temporary directory for individual PDFs
+        temp_dir = os.path.join(PROJECT_ROOT, "tmp", "pdf_temp")
+        os.makedirs(temp_dir, exist_ok=True)
         
-        # Create a temporary markdown file
-        temp_md_path = os.path.join(os.path.dirname(output_file_path), "_temp_combined.md")
-        with open(temp_md_path, 'w', encoding='utf-8') as f:
-            f.write(combined_md)
+        # Convert each markdown file to PDF individually
+        pdf_files = []
+        successful_conversions = 0
         
-        # Convert the combined file
-        success = convert_file(temp_md_path, output_file_path)
+        for md_file in tqdm(markdown_files, desc="Converting individual files"):
+            # Create output path for individual PDF
+            rel_path = os.path.relpath(md_file, file_path)
+            base_name = os.path.splitext(rel_path)[0]
+            pdf_path = os.path.join(temp_dir, f"{base_name}.pdf")
+            
+            # Ensure subdirectories exist
+            os.makedirs(os.path.dirname(pdf_path), exist_ok=True)
+            
+            # Convert to PDF
+            if convert_file(md_file, pdf_path):
+                successful_conversions += 1
+                pdf_files.append(pdf_path)
         
-        # Clean up temporary file
-        os.remove(temp_md_path)
+        if not pdf_files:
+            print("No PDFs were successfully generated")
+            return 0
         
-        return 1 if success else 0
+        print(f"Successfully converted {successful_conversions} markdown files to PDF")
+        print(f"Merging {len(pdf_files)} PDFs into a single file")
+        
+        # Ensure output directory exists
+        os.makedirs(os.path.dirname(os.path.abspath(output_file_path)), exist_ok=True)
+        
+        try:
+            # Import PyPDF2 for merging PDFs
+            from PyPDF2 import PdfMerger
+            
+            # Merge PDFs
+            merger = PdfMerger()
+            for pdf in pdf_files:
+                merger.append(pdf)
+            
+            merger.write(output_file_path)
+            merger.close()
+            
+            print(f"Successfully merged PDFs into {output_file_path}")
+            
+            # Clean up temporary PDFs
+            for pdf in pdf_files:
+                os.remove(pdf)
+            
+            return 1
+            
+        except ImportError:
+            print("PyPDF2 is not installed. Falling back to combining markdown content.")
+            
+            # Combine all markdown content as fallback
+            combined_md = ""
+            for md_file in tqdm(markdown_files, desc="Reading files"):
+                with open(md_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    # Add a page break between files
+                    combined_md += content + "\n\n<div style='page-break-after: always;'></div>\n\n"
+            
+            # Create a temporary markdown file
+            temp_md_path = os.path.join(os.path.dirname(output_file_path), "_temp_combined.md")
+            with open(temp_md_path, 'w', encoding='utf-8') as f:
+                f.write(combined_md)
+            
+            # Convert the combined file
+            success = convert_file(temp_md_path, output_file_path)
+            
+            # Clean up temporary file
+            os.remove(temp_md_path)
+            
+            return 1 if success else 0
     
     # Main execution logic
     if os.path.isfile(input_path):

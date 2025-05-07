@@ -149,10 +149,13 @@ run_pdf() {
     
     echo "===== STEP 4: PDF GENERATION ====="
     
-    # Check if translated file exists
-    if [ ! -f "$translated_file" ]; then
-        echo "Error: Translated file not found at $translated_file"
-        echo "Did you run the concatenation step first?"
+    # Use split translated files directly
+    local source_dir="$SPLITS_TRANSLATED_DIR/$base_name"
+    
+    # Check if translations exist
+    if [ ! -d "$source_dir" ]; then
+        echo "Error: No translated files found at $source_dir"
+        echo "Did you run the translation step first?"
         exit 1
     fi
     
@@ -163,11 +166,13 @@ run_pdf() {
         output_pdf="$PDF_DIR/${output_name}.pdf"
     fi
     
-    echo "Generating PDF from $translated_file"
+    # Generate PDF directly from the split directory
+    echo "Generating PDF from split translated files..."
     echo "Using CSS file: $css_file"
     echo "Output will be saved to: $output_pdf"
     
-    python3 "$APP_DIR/md_to_pdf.py" -s "$css_file" "$translated_file" -o "$output_pdf"
+    # Use md_to_pdf.py with recursive and merge flags
+    python3 "$APP_DIR/md_to_pdf.py" -s "$css_file" -r -m "$source_dir" -o "$output_pdf"
     
     if [ -f "$output_pdf" ]; then
         echo "PDF generation complete. File saved as $output_pdf"

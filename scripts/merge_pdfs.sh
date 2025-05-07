@@ -298,6 +298,9 @@ merge_default_pdfs() {
         "Act II Summary.pdf"
         "Arc D - St. Andral's Feast.pdf"
         "Arc E - The Missing Vistana.pdf"
+        "Arc F - Lady Wachter's Wish.pdf"
+        "Arc G - The Strazni Siblings.pdf"
+        "Arc H - The Lost Soul.pdf"
         # Add more files here as they are translated
     )
     
@@ -361,12 +364,28 @@ merge_custom_pdfs() {
     
     # Check that all specified PDFs exist
     local existing_pdfs=()
+    local pdf_paths=()
+    
     for pdf in "${custom_pdfs[@]}"; do
-        if [ -f "$PDF_DIR/$pdf" ]; then
-            existing_pdfs+=("$pdf")
+        # Check if the file path is absolute
+        if [[ "$pdf" == /* ]]; then
+            # For absolute paths, use as-is
+            if [ -f "$pdf" ]; then
+                existing_pdfs+=("$(basename "$pdf")")
+                pdf_paths+=("$pdf")
+            else
+                echo "Warning: PDF file not found: $pdf"
+                echo "The file will be skipped in the merged output."
+            fi
         else
-            echo "Warning: PDF file not found: $PDF_DIR/$pdf"
-            echo "The file will be skipped in the merged output."
+            # For relative paths, check in PDF_DIR
+            if [ -f "$PDF_DIR/$pdf" ]; then
+                existing_pdfs+=("$pdf")
+                pdf_paths+=("$PDF_DIR/$pdf")
+            else
+                echo "Warning: PDF file not found: $PDF_DIR/$pdf"
+                echo "The file will be skipped in the merged output."
+            fi
         fi
     done
     
@@ -385,8 +404,8 @@ merge_custom_pdfs() {
     
     # Prepare the full list of PDFs with their paths
     local all_pdfs=("$title_page" "$toc_page")
-    for pdf in "${existing_pdfs[@]}"; do
-        all_pdfs+=("$PDF_DIR/$pdf")
+    for pdf in "${pdf_paths[@]}"; do
+        all_pdfs+=("$pdf")
     done
     
     # Merge all PDFs

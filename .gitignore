@@ -1,4 +1,6 @@
 tmp/
+translations/splits/
+translations/splits_translated/
 
 **/.env
 

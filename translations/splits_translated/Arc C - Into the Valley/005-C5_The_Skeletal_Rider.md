@@ -1,5 +1,0 @@
-# C5. Le Cavalier Squelettique
-Lorsque les joueurs retournent au Carrefour de la Rivière Ivlis après avoir reçu la lecture de Tarokka, ils rencontrent un cavalier squelettique, comme décrit dans <span class="citation">Cavalier Squelettique (p. 31)</span>, qui arrive par la route de l'ouest et continue vers le village de Barovia. Si les joueurs ont vu le cadavre de Dalvan Olensky en entrant à Barovia, ils remarquent que les vêtements du cavalier sont reconnaissablement similaires aux siens.
-
-> [!abstract]+ **Suivre le Cavalier**
-> Si suivi, le cavalier continue d'ignorer les joueurs. Après avoir parcouru une courte distance sur la route, il tourne vers le sud sur un ancien chemin de chasse dans les bois, qu'il suit vers l'est jusqu'à la frontière orientale de Barovia. (Le cavalier erre au hasard et n'a pas de destination particulière.)

@@ -1,3 +1,0 @@
-# D6. La visite de Rahadin
-
-Au crépuscule du premier soir après que les ossements ont été restaurés et que Lady Fiona Wachter a pris le pouvoir dans [[Arc F - Le souhait de Lady Wachter]] ou après [[Arc G - Les frères et sœurs Strazni]], Rahadin, le chambellan de Strahd, arrive à Vallaki sur son _destrier fantôme_. Il ordonne alors à la garde de la ville d'arrêter Milivoj et Henrik et de les amener sur la place de la ville pour jugement. (En raison des ordres permanents de Lady Wachter d'obéir aux lois du Château Ravenloft—tant qu'elles ne nuisent pas aux innocents de Vallaki—les gardes aux portes n'obéissent pas.)

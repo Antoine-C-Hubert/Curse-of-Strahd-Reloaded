@@ -137,6 +137,10 @@ The complete translation workflow follows these steps:
 - direct 'import' first, each in alphabetical order
 - then 'from ... import ...', each in alphabetical order
 
+## Git Rules
+- Never commit yourself
+- Instead, only propose a commit message when the task is done
+
 ## Additional Notes
 
 - When translating content, be careful to preserve markdown formatting, character names, and D&D terminology

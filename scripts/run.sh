@@ -26,7 +26,7 @@ show_help() {
     echo "  -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)"
     echo "                           Default: all"
     echo "  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)"
-    echo "  -c, --css FILE           Specify CSS file for PDF styling (default: publish.css)"
+    echo "  -c, --css FILE           Specify CSS file for PDF styling (default: publish_two_columns.css)"
     echo "  -o, --output FILE        Specify output PDF file name (without extension)"
     echo ""
     echo "Examples:"

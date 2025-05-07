@@ -68,19 +68,21 @@ def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, 
                 'markdown.extensions.toc',
                 'markdown.extensions.meta',
                 'markdown.extensions.footnotes',
-                'markdown.extensions.attr_list'
+                'markdown.extensions.attr_list',
+                'markdown.extensions.def_list',
+                'markdown.extensions.admonition'
             ]
         )
         
-        # Add page breaks before all h1 headers (# level) except the first one
-        if "<h1" in html_content:
-            # Find all h1 tags
-            parts = html_content.split("<h1")
-            # Reassemble with page breaks before h1s (except the first)
-            new_content = parts[0] + "<h1" + parts[1]
-            for part in parts[2:]:
-                new_content += '<div style="page-break-before: always;"></div><h1' + part
-            html_content = new_content
+        # Process the admonition blocks (tip, warning, lore)
+        html_content = html_content.replace('<div class="admonition tip">', '<div class="admonition tip" style="break-inside: avoid; page-break-inside: avoid;">')
+        html_content = html_content.replace('<div class="admonition warning">', '<div class="admonition warning" style="break-inside: avoid; page-break-inside: avoid;">')
+        html_content = html_content.replace('<div class="admonition lore">', '<div class="admonition lore" style="break-inside: avoid; page-break-inside: avoid;">')
+        
+        # Process any div with class description
+        html_content = html_content.replace('<div class="description">', '<div class="description" style="break-inside: avoid; page-break-inside: avoid;">')
+        
+        # Page breaks are now handled in CSS for h1 elements
         
         # Wrap HTML content in basic HTML document structure
         file_name = os.path.basename(md_file_path)

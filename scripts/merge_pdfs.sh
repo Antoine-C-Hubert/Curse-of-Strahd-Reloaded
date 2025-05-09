@@ -489,11 +489,49 @@ main() {
         merge_default_pdfs "$output_file"
     fi
     
+    # Add page numbers to the merged PDF
+    local temp_file="${output_file%.pdf}_temp.pdf"
+    mv "$output_file" "$temp_file"
+    
+    # Add page numbers
+    add_page_numbers "$temp_file" "$output_file"
+    
+    # Remove temporary file
+    rm -f "$temp_file"
+    
     # Clean up temp directory
     rm -rf "$TEMP_DIR/title_page.html" "$TEMP_DIR/toc_page.html"
     
     echo "===== COMPLETE ====="
-    echo "Final merged PDF available at: $output_file"
+    echo "Final merged PDF with page numbers available at: $output_file"
+}
+
+# Add page numbering to a PDF
+add_page_numbers() {
+    local input="$1"
+    local output="$2"
+    local pages=$(pdftk "$input" dump_data | grep NumberOfPages | cut -d':' -f2)
+    
+    echo "Adding page numbers to PDF..."
+    
+    # Check if enscript and ps2pdf are installed
+    if ! command -v enscript &> /dev/null || ! command -v ps2pdf &> /dev/null; then
+        echo "Error: enscript or ps2pdf is not installed."
+        echo "Please install them using: sudo apt install enscript ghostscript"
+        return 1
+    fi
+    
+    # Create empty pages with just page numbers
+    enscript -L1 -b'||$%' -o- < <(for i in $(seq "$pages"); do echo; done) | \
+    ps2pdf - | pdftk "$input" multistamp - output "$output"
+    
+    if [ -f "$output" ]; then
+        echo "Page numbering complete."
+        return 0
+    else
+        echo "Error: Page numbering failed."
+        return 1
+    fi
 }
 
 # Execute main function

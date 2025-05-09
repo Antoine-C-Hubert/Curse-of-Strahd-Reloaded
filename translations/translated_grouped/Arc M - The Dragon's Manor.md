@@ -644,9 +644,7 @@ Une créature doit réussir un test de Dextérité (Discrétion) DD 11, effectu�
 <span class="citation"><em>Cette scène se déroule dans le Chapitre 7, Zones Q14 et Q24.</em></span>
 
 Ces zones sont décrites dans <span class="citation">Q14. Escaliers de la Chapelle (p. 134)</span> et <span class="citation">Q24. Balcon de la Chapelle (p. 136)</span>. Cependant, la chapelle en dessous est décrite dans [[#M3c. Chapelle du Matin]].
-```markdown
 # M6. Troisième Étage
-```
 ## M6a. Salles de l'Ordre
 #### Chevaliers de l'Ordre
 <span class="citation"><em>Cette scène se déroule au Chapitre 7, Zones Q37 et Q38 (p. 139).</em></span>

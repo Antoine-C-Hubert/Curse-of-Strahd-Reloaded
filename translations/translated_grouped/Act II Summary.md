@@ -26,10 +26,8 @@ Les joueurs commencent cet acte au niveau 4 et le terminent au niveau 5, chaque 
 > De plus, les joueurs qui parcourent les magasins de la ville peuvent trouver la plupart des articles avec un prix de 25 po ou moins, y compris les armes et armures. Les joueurs peuvent également acheter des matériaux pour livres de sorts et des composants de sorts jusqu'à une valeur de 50 po chacun.
 > 
 > Lors de l'achat d'articles aux joueurs, les marchands de Vallaki paieront la pleine valeur de l'article pour les objets magiques et les trésors, mais la moitié de la valeur de l'article pour tous les autres biens (par exemple, armes ou armures). Les marchands ont également des fonds limités. Un magasin ne peut pas fournir plus de 50 pièces d'or pour un seul article, mais peut offrir un crédit en magasin pour sa valeur restante.
-```markdown
 # Chronologie
 Une fois que les joueurs arrivent à Vallaki et que l'Acte II commence, la chronologie des événements se déroule comme suit.
-```
 ## Neyavr 2
 Avant l'arrivée des joueurs, le maître de piste Rictavio réserve une chambre à l'Auberge de l'Eau Bleue.
 

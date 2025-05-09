@@ -318,9 +318,7 @@ Si Victor est présent, ou s'il est informé de la nécessité d'obtenir les vra
 Si Lady Wachter est informée de la possible présence d'enfants dans le moulin, elle insiste pour que les joueurs les sauvent avant de lancer toute attaque. (Heureusement, note-t-elle, les efforts des joueurs pour obtenir les noms des sorcières peuvent s'avérer être une distraction utile qui permet à d'autres membres de leur groupe de piller les autres pièces du moulin entre-temps.)
 
 Si les joueurs et Lady Wachter parviennent à un accord, elle promet de les rencontrer—avec ses associés—à la Porte du Matin est de Vallaki à l'heure convenue, une fois qu'elle se sera préparée pour le voyage.
-```markdown
 # H6. La Vieille Route Svalich
-```
 ## H6a. La Porte du Matin
 
 Si les joueurs recrutent [[Non-Player Characters#Lady Fiona Wachter|Lady Wachter]] à leur cause, elle et ses quatre associés **fanatiques du culte** les rencontrent promptement à la Porte du Matin à l'heure choisie. Lady Wachter a échangé sa robe contre un pantalon pratique, des bottes en cuir à semelles plates et une chemise de mailles glissée sous une tunique vert forêt, avec une masse à tête ronde accrochée à sa ceinture et une cape de cavalier à capuche noire couvrant l'ensemble. Majesto, son familier **diablotin**, l'accompagne sous forme de **corbeau**.

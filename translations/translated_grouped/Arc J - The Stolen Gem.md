@@ -1403,9 +1403,7 @@ De plus, si elle est encore présente à son prochain tour, Ludmilla utilise son
 
 > [!abstract]+ **Le Pari de Strahd**
 > Si les joueurs réussissent à arrêter le rituel, Strahd réapparaît brièvement sur Beucephalus, planant à trente pieds au-dessus du sol sur le bord nord-ouest du cercle de pierre. Une fois remarqué par les joueurs, Strahd incline la tête vers <span class="citation">Y5. Mur de Brouillard (p. 200)</span>, pousse Beucephalus dans sa direction, et disparaît à nouveau alors que le **cauchemar** s'y dirige au galop.
-```markdown
 # J6. Après le Rituel
-```
 ## J6a. Confession de Muriel
 
 Si les joueurs confrontent Muriel après le combat, elle est prête à partager les informations suivantes :

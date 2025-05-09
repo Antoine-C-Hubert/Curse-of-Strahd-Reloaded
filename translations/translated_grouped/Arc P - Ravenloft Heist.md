@@ -1518,9 +1518,7 @@ Les chauves-souris arrivent en deux rounds, plutôt qu'en trois.
 > * **Trois Joueurs**. Réduisez le nombre d'essaims de chauves-souris à 7. 
 > * **Quatre Joueurs**. Réduisez le nombre d'essaims de chauves-souris à 9. 
 > * **Six Joueurs**. Augmentez le nombre d'essaims de chauves-souris à 12.
-```markdown
 # P11. Donjons
-```
 ## P11a. Couloir du Donjon
 <span class="citation"><em>Cette scène se déroule dans le Chapitre 4, Zone K73.</em></span>
 

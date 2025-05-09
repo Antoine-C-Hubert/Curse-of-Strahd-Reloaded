@@ -205,7 +205,6 @@ Si les joueurs insistent pour purifier l'esprit de l'Abbé ou continuent autreme
 </div>
 
 L'Abbé attaque alors.
-```markdown
 ## Q3c. La Rage de l'Abbé
 Lorsque l'Abbé attaque, il se débarrasse de ses robes de moine et se transforme, révélant sa véritable forme angélique. Lisez :
 
@@ -530,7 +529,6 @@ Avant que les joueurs ne partent, Ithuriel leur offre librement des soins grâce
 > ***Persona.*** Pour le monde, Ithuriel est un jeune mature et contemplatif avec un fort sens de l'humilité et une profonde compassion pour les autres. Pour ceux en qui il a confiance, Ithuriel est un jeune ange persévérant pour réassembler son but et son identité après sa corruption, sa défaite, et sa restauration.
 >
 > ***Moral.*** Dans un combat, Ithuriel chercherait à calmer son ennemi, mais n'hésiterait pas à défendre avec force un innocent menacé par des ennemis aux intentions malveillantes.
-```
 ## Q3d. La Gratitude de Sainte Markovia
 
 Lorsque les joueurs descendent pour la première fois la route en lacets et entrent dans le village de Krezk après avoir vaincu l'Abbé, qu'ils aient racheté l'Abbé ou non, Sainte Markovia les appelle au Sanctuaire du Soleil Blanc. Lisez :

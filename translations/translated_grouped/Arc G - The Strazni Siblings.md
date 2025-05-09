@@ -18,9 +18,7 @@ Si les joueurs n'arrêtent pas Izek ou ne prennent pas de mesures extraordinaire
 > "Je paierais les salaires de la garde de la ville, oui," dit-elle, "mais ce sont des gens craignant le Seigneur du Matin—ils n'hésiteraient pas à me destituer s'ils estimaient que mes ordonnances nuisaient à leurs voisins." Elle ajoute avec ironie, "Je vous assure : je n'ai aucune envie de *régner* sur Vallaki. Mes aspirations, aussi cléricales soient-elles, sont bien plus ennuyeuses que cela."
 > 
 > Si les joueurs semblent encore méfiants quant à la possibilité qu'elle puisse les trahir à Strahd, elle ricane et souligne que les joueurs ont tué Izek—qu'elle ne pouvait elle-même toucher. "Si quelqu'un devait être effrayé, c'est moi," dit-elle, riant légèrement de manière hystérique. "Une bande d'étrangers armés et puissants est arrivée dans ma petite ville et a tué la créature la plus puissante dans ses murs. Je suis ici seulement parce que j'ai foi en votre bonne volonté et votre amour pour mes voisins.")
-```markdown
 # G1. L'Auberge de l'Eau Bleue
-```
 ## G1a. La visite d'Izek
 
 Un peu plus d'un jour après avoir aperçu Ireena Kolyana pour la première fois—soit dans la rue devant l'Auberge de l'Eau Bleue, sur la place de la ville de Vallaki, ou à un autre endroit—Izek Strazni la reconnaît comme la femme qu'il a vue à plusieurs reprises dans ses rêves et devient déterminé à la trouver.

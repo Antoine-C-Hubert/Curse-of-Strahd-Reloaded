@@ -4,6 +4,8 @@ import argparse
 import glob
 import markdown
 import os
+import re
+import shutil
 import sys
 from pathlib import Path
 from tqdm import tqdm
@@ -13,6 +15,9 @@ from weasyprint.text.fonts import FontConfiguration
 # Define paths
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 TEMPLATES_DIR = os.path.join(PROJECT_ROOT, "templates")
+TRANSLATIONS_DIR = os.path.join(PROJECT_ROOT, "translations")
+TRANSLATED_GROUPED_DIR = os.path.join(TRANSLATIONS_DIR, "translated_grouped")
+TMP_DIR = os.path.join(PROJECT_ROOT, "tmp")
 
 def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, recursive=False):
     """
@@ -115,79 +120,107 @@ def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, 
             print(f"Error converting {md_file_path} to PDF: {str(e)}")
             return False
     
-    # Process a directory recursively
-    def process_directory(directory, output_dir=None):
-        if output_dir is None:
-            output_dir = directory
+    # Split a markdown file by main titles (h1) and create temp files
+    def split_by_main_titles(md_file_path):
+        with open(md_file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
         
-        # Get all markdown files in directory
-        pattern = os.path.join(directory, "**/*.md") if recursive else os.path.join(directory, "*.md")
-        markdown_files = glob.glob(pattern, recursive=recursive)
+        # Find all level 1 (# Title) sections
+        level1_pattern = r'(?m)^# (.+?)$'
+        level1_matches = list(re.finditer(level1_pattern, content))
         
-        if not markdown_files:
-            print(f"No markdown files found in {directory}")
-            return 0
-        
-        print(f"Found {len(markdown_files)} markdown files to convert")
-        
-        # Convert each file
-        successful = 0
-        for md_file in tqdm(markdown_files, desc="Converting files"):
-            # Determine the output path, preserving the directory structure
-            rel_path = os.path.relpath(md_file, directory)
-            output_file = os.path.join(output_dir, os.path.splitext(rel_path)[0] + '.pdf')
-            
-            if convert_file(md_file, output_file):
-                successful += 1
-        
-        return successful
-    
-    # Process a single file or merge multiple files
-    def process_single_file_or_merge(file_path, output_file_path=None):
-        # For a single file, just convert it
-        if os.path.isfile(file_path):
-            if convert_file(file_path, output_file_path):
-                return 1
-            return 0
-        
-        # For a directory with the merge option, we generate individual PDFs and merge them
-        pattern = os.path.join(file_path, "**/*.md") if recursive else os.path.join(file_path, "*.md")
-        markdown_files = sorted(glob.glob(pattern, recursive=recursive))
-        
-        if not markdown_files:
-            print(f"No markdown files found in {file_path}")
-            return 0
-        
-        print(f"Found {len(markdown_files)} markdown files to process")
-        
-        # Create a temporary directory for individual PDFs
-        temp_dir = os.path.join(PROJECT_ROOT, "tmp", "pdf_temp")
+        # Create temp directory for split files
+        file_name = os.path.basename(md_file_path)
+        file_name_no_ext = os.path.splitext(file_name)[0]
+        temp_dir = os.path.join(TMP_DIR, f"temp_splits_{file_name_no_ext}")
         os.makedirs(temp_dir, exist_ok=True)
         
-        # Convert each markdown file to PDF individually
+        temp_files = []
+        
+        # If no level 1 headers, treat the whole file as one section
+        if not level1_matches:
+            temp_file_path = os.path.join(temp_dir, "000.md")
+            with open(temp_file_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            temp_files.append(temp_file_path)
+            return temp_files
+        
+        # Check if there's content before the first heading
+        if level1_matches[0].start() > 0:
+            intro_content = content[:level1_matches[0].start()]
+            if intro_content.strip():  # Only save if there's actual content
+                temp_file_path = os.path.join(temp_dir, "000.md")
+                with open(temp_file_path, 'w', encoding='utf-8') as f:
+                    # Add document title as main title
+                    f.write(f"# {file_name_no_ext}\n\n")
+                    f.write(intro_content)
+                temp_files.append(temp_file_path)
+        
+        # Process each level 1 section
+        for i, match in enumerate(level1_matches):
+            start_pos = match.start()
+            end_pos = len(content)
+            if i < len(level1_matches) - 1:
+                end_pos = level1_matches[i + 1].start()
+            
+            section_content = content[start_pos:end_pos]
+            section_index = f"{i+1:03d}"
+            
+            temp_file_path = os.path.join(temp_dir, f"{section_index}.md")
+            with open(temp_file_path, 'w', encoding='utf-8') as f:
+                f.write(section_content)
+            
+            temp_files.append(temp_file_path)
+        
+        return temp_files
+    
+    # Process a single markdown file by splitting it into main sections
+    def process_by_main_sections(md_file_path, output_file_path=None):
+        if output_file_path is None:
+            output_file_path = os.path.splitext(md_file_path)[0] + '.pdf'
+        
+        # Split the file by main titles
+        temp_files = split_by_main_titles(md_file_path)
+        
+        if not temp_files:
+            print(f"No sections found in {md_file_path}")
+            return 0
+        
+        print(f"Split {md_file_path} into {len(temp_files)} sections")
+        
+        # Create a temporary directory for section PDFs
+        file_name = os.path.basename(md_file_path)
+        file_name_no_ext = os.path.splitext(file_name)[0]
+        temp_pdf_dir = os.path.join(TMP_DIR, f"temp_pdfs_{file_name_no_ext}")
+        os.makedirs(temp_pdf_dir, exist_ok=True)
+        
+        # Convert each section to PDF
         pdf_files = []
         successful_conversions = 0
         
-        for md_file in tqdm(markdown_files, desc="Converting individual files"):
+        for temp_file in tqdm(temp_files, desc="Converting sections"):
             # Create output path for individual PDF
-            rel_path = os.path.relpath(md_file, file_path)
-            base_name = os.path.splitext(rel_path)[0]
-            pdf_path = os.path.join(temp_dir, f"{base_name}.pdf")
-            
-            # Ensure subdirectories exist
-            os.makedirs(os.path.dirname(pdf_path), exist_ok=True)
+            base_name = os.path.basename(temp_file)
+            pdf_path = os.path.join(temp_pdf_dir, f"{os.path.splitext(base_name)[0]}.pdf")
             
             # Convert to PDF
-            if convert_file(md_file, pdf_path):
+            if convert_file(temp_file, pdf_path):
                 successful_conversions += 1
                 pdf_files.append(pdf_path)
+        
+        # Clean up temporary markdown files
+        for temp_file in temp_files:
+            os.remove(temp_file)
         
         if not pdf_files:
             print("No PDFs were successfully generated")
             return 0
         
-        print(f"Successfully converted {successful_conversions} markdown files to PDF")
+        print(f"Successfully converted {successful_conversions} sections to PDF")
         print(f"Merging {len(pdf_files)} PDFs into a single file")
+        
+        # Sort PDF files by their numeric prefix
+        pdf_files.sort(key=lambda path: os.path.basename(path).split('.')[0])
         
         # Ensure output directory exists
         os.makedirs(os.path.dirname(os.path.abspath(output_file_path)), exist_ok=True)
@@ -210,40 +243,81 @@ def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, 
             for pdf in pdf_files:
                 os.remove(pdf)
             
+            # Remove temp directories safely using shutil
+            try:
+                shutil.rmtree(temp_pdf_dir)
+                shutil.rmtree(os.path.dirname(temp_files[0]))
+            except Exception as e:
+                print(f"Warning: Failed to clean up temporary directories: {str(e)}")
+            
             return 1
             
         except ImportError:
-            print("PyPDF2 is not installed. Falling back to combining markdown content.")
+            print("PyPDF2 is not installed. Please install it for PDF merging.")
+            return 0
+        except Exception as e:
+            print(f"Error merging PDFs: {str(e)}")
+            return 0
+    
+    # Process a directory
+    def process_directory(directory, output_dir=None):
+        if output_dir is None:
+            output_dir = directory
+        
+        # Get all markdown files in directory
+        pattern = os.path.join(directory, "**/*.md") if recursive else os.path.join(directory, "*.md")
+        markdown_files = glob.glob(pattern, recursive=recursive)
+        
+        if not markdown_files:
+            print(f"No markdown files found in {directory}")
+            return 0
+        
+        print(f"Found {len(markdown_files)} markdown files to convert")
+        
+        # Convert each file using the main sections approach
+        successful = 0
+        for md_file in tqdm(markdown_files, desc="Converting files"):
+            # Determine the output path, preserving the directory structure
+            rel_path = os.path.relpath(md_file, directory)
+            output_file = os.path.join(output_dir, os.path.splitext(rel_path)[0] + '.pdf')
             
-            # Combine all markdown content as fallback
-            combined_md = ""
-            for md_file in tqdm(markdown_files, desc="Reading files"):
-                with open(md_file, 'r', encoding='utf-8') as f:
-                    content = f.read()
-                    # Add a page break between files
-                    combined_md += content + "\n\n<div style='page-break-after: always;'></div>\n\n"
-            
-            # Create a temporary markdown file
-            temp_md_path = os.path.join(os.path.dirname(output_file_path), "_temp_combined.md")
-            with open(temp_md_path, 'w', encoding='utf-8') as f:
-                f.write(combined_md)
-            
-            # Convert the combined file
-            success = convert_file(temp_md_path, output_file_path)
-            
-            # Clean up temporary file
-            os.remove(temp_md_path)
-            
-            return 1 if success else 0
+            if process_by_main_sections(md_file, output_file):
+                successful += 1
+        
+        return successful
     
     # Main execution logic
     if os.path.isfile(input_path):
         # Process single file
-        return process_single_file_or_merge(input_path, output_path)
+        return process_by_main_sections(input_path, output_path)
     elif os.path.isdir(input_path):
         if output_path and output_path.endswith('.pdf'):
-            # Merge all files into a single PDF
-            return process_single_file_or_merge(input_path, output_path)
+            # Process directory but output a single PDF
+            # For this case, we'll concatenate all markdown files first, then process
+            temp_concat_path = os.path.join(TMP_DIR, "temp_concat.md")
+            
+            # Get all markdown files
+            pattern = os.path.join(input_path, "**/*.md") if recursive else os.path.join(input_path, "*.md")
+            markdown_files = sorted(glob.glob(pattern, recursive=recursive))
+            
+            if not markdown_files:
+                print(f"No markdown files found in {input_path}")
+                return 0
+            
+            # Concatenate files
+            with open(temp_concat_path, 'w', encoding='utf-8') as concat_file:
+                for md_file in tqdm(markdown_files, desc="Concatenating files"):
+                    with open(md_file, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                        concat_file.write(content + "\n\n")
+            
+            # Process the concatenated file
+            result = process_by_main_sections(temp_concat_path, output_path)
+            
+            # Clean up
+            os.remove(temp_concat_path)
+            
+            return result
         else:
             # Process directory, converting each file individually
             return process_directory(input_path, output_path)
@@ -258,6 +332,7 @@ def main():
     parser.add_argument("-s", "--style", help="CSS stylesheet for PDF styling", default=None)
     parser.add_argument("-r", "--recursive", help="Process directories recursively", action="store_true")
     parser.add_argument("-m", "--merge", help="Merge all input files into a single PDF", action="store_true")
+    parser.add_argument("--cleanup", help="Clean up temporary directories before starting", action="store_true")
     
     args = parser.parse_args()
     
@@ -266,13 +341,29 @@ def main():
         print(f"Error: Input path '{args.input}' does not exist")
         return 1
     
-    # Handle merging option
+    # Handle merging option with dir input
     if args.merge and os.path.isdir(args.input):
         if not args.output:
             # Default output filename for merged PDF
             args.output = os.path.basename(os.path.normpath(args.input)) + ".pdf"
         elif not args.output.endswith('.pdf'):
             args.output = args.output + ".pdf"
+    
+    # Create tmp directory if it doesn't exist
+    os.makedirs(TMP_DIR, exist_ok=True)
+    
+    # Clean up any existing temp directories if requested
+    if args.cleanup and os.path.exists(TMP_DIR):
+        print("Cleaning up temporary directories...")
+        for item in os.listdir(TMP_DIR):
+            item_path = os.path.join(TMP_DIR, item)
+            try:
+                if os.path.isdir(item_path):
+                    shutil.rmtree(item_path)
+                else:
+                    os.remove(item_path)
+            except Exception as e:
+                print(f"Warning: Failed to remove {item_path}: {str(e)}")
     
     # Process files
     successful = convert_markdown_to_pdf(

@@ -101,7 +101,7 @@ def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
         5. Keep URLs unchanged
         6. Keep code blocks and inline code unchanged
         
-        Return ONLY the translated text, with no explanations or notes.
+        Return ONLY the translated text, with no explanations or notes and no '''markdown''' around it.
         """
         
         user_prompt = f"Translate this English markdown text to French, preserving all formatting:\n\n{content}"

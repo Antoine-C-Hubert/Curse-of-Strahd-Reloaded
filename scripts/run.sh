@@ -171,8 +171,8 @@ run_pdf() {
     echo "Using CSS file: $css_file"
     echo "Output will be saved to: $output_pdf"
     
-    # Use md_to_pdf.py with recursive and merge flags
-    python3 "$APP_DIR/md_to_pdf.py" -s "$css_file" -r -m "$source_dir" -o "$output_pdf"
+    # Use md_to_pdf.py with recursive and merge flags, and add cleanup flag
+    python3 "$APP_DIR/md_to_pdf.py" -s "$css_file" -r -m --cleanup "$source_dir" -o "$output_pdf"
     
     if [ -f "$output_pdf" ]; then
         echo "PDF generation complete. File saved as $output_pdf"

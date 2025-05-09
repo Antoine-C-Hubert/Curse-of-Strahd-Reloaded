@@ -301,6 +301,14 @@ merge_default_pdfs() {
         "Arc F - Lady Wachter's Wish.pdf"
         "Arc G - The Strazni Siblings.pdf"
         "Arc H - The Lost Soul.pdf"
+        "Act III Summary.pdf"
+        "Arc J - The Stolen Gem.pdf"
+        "Arc K - The Fallen Abbey.pdf"
+        "Arc L - The Den of Wolves.pdf"
+        "Arc M - The Dragon's Manor.pdf"
+        "Arc O - Dinner with the Devil.pdf"
+        "Arc P - Ravenloft Heist.pdf"
+        "Arc Q - A Shining Beacon.pdf"
         # Add more files here as they are translated
     )
     

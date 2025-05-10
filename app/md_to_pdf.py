@@ -11,6 +11,7 @@ from pathlib import Path
 from tqdm import tqdm
 from weasyprint import HTML, CSS
 from weasyprint.text.fonts import FontConfiguration
+from PyPDF2 import PdfMerger, PdfReader
 
 # Define paths
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -226,9 +227,6 @@ def convert_markdown_to_pdf(input_path, output_path=None, stylesheet_path=None, 
         os.makedirs(os.path.dirname(os.path.abspath(output_file_path)), exist_ok=True)
         
         try:
-            # Import PyPDF2 for merging PDFs
-            from PyPDF2 import PdfMerger
-            
             # Merge PDFs
             merger = PdfMerger()
             for pdf in pdf_files:
@@ -333,6 +331,7 @@ def main():
     parser.add_argument("-r", "--recursive", help="Process directories recursively", action="store_true")
     parser.add_argument("-m", "--merge", help="Merge all input files into a single PDF", action="store_true")
     parser.add_argument("--cleanup", help="Clean up temporary directories before starting", action="store_true")
+    parser.add_argument("--even-pages", help="Add a blank page at the end if total page count is odd", action="store_true")
     
     args = parser.parse_args()
     
@@ -372,6 +371,35 @@ def main():
         args.style,
         args.recursive
     )
+    
+    # Add blank page if requested and output is a PDF
+    if args.even_pages and args.output and args.output.endswith('.pdf') and os.path.exists(args.output):
+        print("Checking if PDF has an odd number of pages...")
+        with open(args.output, 'rb') as pdf_file:
+            pdf_reader = PdfReader(pdf_file)
+            page_count = len(pdf_reader.pages)
+            
+            if page_count % 2 != 0:  # If odd number of pages
+                print(f"PDF has {page_count} pages (odd). Adding blank page...")
+                blank_page_path = os.path.join(TEMPLATES_DIR, "blank_page.pdf")
+                
+                if os.path.exists(blank_page_path):
+                    merger = PdfMerger()
+                    merger.append(args.output)
+                    merger.append(blank_page_path)
+                    
+                    # Create a temporary file for the new PDF
+                    temp_output = args.output + ".tmp"
+                    merger.write(temp_output)
+                    merger.close()
+                    
+                    # Replace the original file with the new one
+                    os.replace(temp_output, args.output)
+                    print(f"Added blank page. PDF now has {page_count + 1} pages (even)")
+                else:
+                    print(f"Warning: Could not find blank page template at {blank_page_path}")
+            else:
+                print(f"PDF already has {page_count} pages (even). No blank page needed.")
     
     print(f"Conversion completed: {successful} file(s) converted")
     return 0

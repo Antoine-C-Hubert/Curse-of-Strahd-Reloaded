@@ -27,7 +27,7 @@ while IFS= read -r line; do
     # First cleanup temp directories
     rm -rf tmp/temp_splits_* tmp/temp_pdfs_* 2>/dev/null || true
     
-    # Run the translation workflow on this file
+    # Run the translation workflow on this file (even page count is now the default)
     ./scripts/run.sh "$file_path"
     
     # Optional: add a small delay between files

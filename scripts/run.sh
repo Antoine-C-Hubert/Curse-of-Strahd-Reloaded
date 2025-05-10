@@ -28,6 +28,8 @@ show_help() {
     echo "  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)"
     echo "  -c, --css FILE           Specify CSS file for PDF styling (default: publish_two_columns.css)"
     echo "  -o, --output FILE        Specify output PDF file name (without extension)"
+    echo "  -e, --even-pages         Add a blank page at the end if total page count is odd (default)"
+    echo "  --no-even-pages          Don't add a blank page if the page count is odd"
     echo ""
     echo "Examples:"
     echo "  # Complete workflow from markdown to PDF:"
@@ -144,6 +146,7 @@ run_pdf() {
     local file_path="$1"
     local css_file="$2"
     local output_name="$3"
+    local use_even_pages="$4"
     local base_name=$(get_base_name "$file_path")
     local translated_file="$TRANSLATED_GROUPED_DIR/$base_name.md"
     
@@ -172,7 +175,11 @@ run_pdf() {
     echo "Output will be saved to: $output_pdf"
     
     # Use md_to_pdf.py with recursive and merge flags, and add cleanup flag
-    python3 "$APP_DIR/md_to_pdf.py" -s "$css_file" -r -m --cleanup "$source_dir" -o "$output_pdf"
+    if [ "$use_even_pages" = true ]; then
+        python3 "$APP_DIR/md_to_pdf.py" -s "$css_file" -r -m --cleanup --even-pages "$source_dir" -o "$output_pdf"
+    else
+        python3 "$APP_DIR/md_to_pdf.py" -s "$css_file" -r -m --cleanup "$source_dir" -o "$output_pdf"
+    fi
     
     if [ -f "$output_pdf" ]; then
         echo "PDF generation complete. File saved as $output_pdf"
@@ -188,11 +195,12 @@ run_all() {
     local model="$2"
     local css_file="$3"
     local output_name="$4"
+    local use_even_pages="$5"
     
     run_split "$file_path"
     run_translate "$file_path" "$model"
     run_concatenate "$file_path"
-    run_pdf "$file_path" "$css_file" "$output_name"
+    run_pdf "$file_path" "$css_file" "$output_name" "$use_even_pages"
     
     echo "===== COMPLETE ====="
     local base_name=$(get_base_name "$file_path")
@@ -212,6 +220,7 @@ main() {
     local css_file="$PROJECT_ROOT/templates/publish_two_columns.css"
     local output_name=""
     local file_path=""
+    local even_pages=true
     
     # Parse arguments
     while [[ $# -gt 0 ]]; do
@@ -249,6 +258,14 @@ main() {
             -o|--output)
                 output_name="$2"
                 shift 2
+                ;;
+            -e|--even-pages)
+                even_pages=true
+                shift
+                ;;
+            --no-even-pages)
+                even_pages=false
+                shift
                 ;;
             *)
                 if [[ -z "$file_path" ]]; then
@@ -297,10 +314,10 @@ main() {
             run_concatenate "$file_path"
             ;;
         pdf)
-            run_pdf "$file_path" "$css_file" "$output_name"
+            run_pdf "$file_path" "$css_file" "$output_name" "$even_pages"
             ;;
         all)
-            run_all "$file_path" "$model" "$css_file" "$output_name"
+            run_all "$file_path" "$model" "$css_file" "$output_name" "$even_pages"
             ;;
         *)
             echo "Error: Invalid step specified: $step"

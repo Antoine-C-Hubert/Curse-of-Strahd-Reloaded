@@ -1,0 +1,1 @@
+pdftk Guide_Complet.pdf cat 1-350 391-end output Guide_Complet_crop.pdf

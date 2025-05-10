@@ -306,9 +306,16 @@ merge_default_pdfs() {
         "Arc K - The Fallen Abbey.pdf"
         "Arc L - The Den of Wolves.pdf"
         "Arc M - The Dragon's Manor.pdf"
+        "Arc N - Tales of Vallaki.pdf"
         "Arc O - Dinner with the Devil.pdf"
         "Arc P - Ravenloft Heist.pdf"
         "Arc Q - A Shining Beacon.pdf"
+        "Act IV Summary.pdf"
+        "Arc R - Trial of the Mountain.pdf"
+        "Arc S - A Sword of Sunlight.pdf"
+        "Arc T - The Three Fanes.pdf"
+        "Arc U - The Curse of Strahd.pdf"
+        "Epilogue.pdf"
         # Add more files here as they are translated
     )
     

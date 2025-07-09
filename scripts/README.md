@@ -1,8 +1,22 @@
-# Curse of Strahd Reloaded Scripts
+# Translation Scripts Documentation
 
-This directory contains utility scripts for working with the Curse of Strahd Reloaded project.
+This directory contains scripts for translating and processing the Curse of Strahd: Reloaded content.
 
-## Translation and PDF Generation Workflow
+## Scripts Overview
+
+### Individual File Processing
+- **`run.sh`** - Process individual files from the main campaign guide
+
+### Reference Materials Processing
+- **`run_reference.sh`** - Process Chapter folders and Appendices separately
+- **`merge_reference_pdfs.sh`** - Merge reference materials into combined PDFs
+
+### Batch Processing
+- **`batch_run.sh`** - Process all files listed in files_list.txt
+- **`batch_run_all.sh`** - Comprehensive script to process everything
+- **`merge_pdfs.sh`** - Merge main campaign guide PDFs
+
+## Translation Workflow
 
 The complete translation workflow follows these steps:
 
@@ -11,121 +25,147 @@ The complete translation workflow follows these steps:
 3. **Concatenate** translated files → `translations/translated_grouped/` 
 4. **Generate PDFs** from translated files → `translations/pdf/`
 
-## Unified Script: run.sh
+## Usage Patterns
 
-The `run.sh` script provides a single, unified interface for handling the entire translation workflow from markdown to PDF generation.
-
+### For Individual Processing
 ```bash
-Usage: ./scripts/run.sh [OPTIONS] <markdown_file>
+# Process a single campaign file
+./run.sh "Act I - Into the Mists/Act I Summary.md"
 
-Options:
-  -h, --help               Show this help message
-  -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)
-                           Default: all
-  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)
-  -c, --css FILE           Specify CSS file for PDF styling (default: publish.css)
-  -o, --output FILE        Specify output PDF file name (without extension)
+# Process reference materials
+./run_reference.sh chapters
+./run_reference.sh appendices
 ```
 
-### Examples
-
-**Complete workflow** (split, translate, concatenate, PDF generation):
-
+### For Batch Processing
 ```bash
-./scripts/run.sh "Act III - The Broken Land/Act III Summary.md"
+# Process everything
+./batch_run_all.sh
+
+# Process only reference materials with combined PDFs
+./batch_run_all.sh reference
+
+# Process only the main guide
+./batch_run_all.sh guide
 ```
 
-**Run specific steps**:
-
+### For PDF Merging
 ```bash
-# Only split the file
-./scripts/run.sh -s split "Act III - The Broken Land/Act III Summary.md"
+# Merge main guide PDFs
+./merge_pdfs.sh
 
-# Only translate (requires previous split)
-./scripts/run.sh -s translate "Act III - The Broken Land/Act III Summary.md"
-
-# Only concatenate (requires previous translation)
-./scripts/run.sh -s concat "Act III - The Broken Land/Act III Summary.md"
-
-# Only generate PDF (requires previous concatenation)
-./scripts/run.sh -s pdf "Act III - The Broken Land/Act III Summary.md"
+# Merge reference materials separately
+./merge_reference_pdfs.sh
 ```
 
-**Custom options**:
+## Output Structure
 
-```bash
-# Use a different translation model
-./scripts/run.sh -m gpt-3.5-turbo "Act III - The Broken Land/Act III Summary.md"
+The scripts create the following output organization:
 
-# Use a custom CSS file for PDF styling
-./scripts/run.sh -c custom.css "Act III - The Broken Land/Act III Summary.md"
-
-# Specify a custom output name for the PDF
-./scripts/run.sh -o "ActIII_French" "Act III - The Broken Land/Act III Summary.md"
 ```
+translations/
+├── pdf/
+│   ├── Campaign Guide Files/
+│   │   ├── Act I Summary.pdf
+│   │   ├── Arc A - Escape From Death House.pdf
+│   │   └── ...
+│   └── Reference Files/
+│       ├── Character Creation.pdf
+│       ├── Session Zero.pdf
+│       ├── Amber Shards.pdf
+│       └── ...
+├── Campaign_Guide_Complete.pdf
+├── Reference_Chapters.pdf
+└── Reference_Appendices.pdf
+```
+
+## Key Features
+
+### Separate Processing
+- **Main Guide**: Acts, Arcs, and campaign-specific content
+- **Reference Materials**: Chapters (setup/background) and Appendices (reference)
+- **Individual Access**: Each section remains available as individual PDFs
+- **Combined Access**: Merged PDFs for complete distribution
+
+### Flexible Workflow
+- Run only specific steps (split, translate, concat, pdf)
+- Process specific targets (guide, chapters, appendices, all)
+- Custom output names and styling
+- Skip merging if desired
+
+### Quality Control
+- Even/odd page handling for professional printing
+- Consistent styling across all outputs
+- Title pages and table of contents for merged documents
+- Error handling and dependency checking
 
 ## Individual Python Scripts
 
 You can also use the underlying Python scripts directly if needed:
 
 ### app/md_splitter.py
-
 Splits a markdown file into smaller sections based on header levels.
-
 ```bash
 python app/md_splitter.py <markdown_file>
 ```
 
-Files are saved to `translations/splits/<filename>/`.
-
 ### app/md_translator.py
-
 Translates markdown files from English to French using OpenAI API.
-
 ```bash
 python app/md_translator.py <input_directory> [output_directory] [model]
 ```
 
-By default, reads from `translations/splits/` and outputs to `translations/splits_translated/`.
-
 ### app/md_concatenator.py
-
 Reassembles translated split files back into complete documents.
-
 ```bash
 python app/md_concatenator.py [base_directory]
 ```
 
-By default, reads from `translations/splits_translated/` and outputs to `translations/translated_grouped/`.
-
 ### app/md_to_pdf.py
-
 Converts markdown files to PDF format with optional styling.
-
 ```bash
 python app/md_to_pdf.py [OPTIONS] input
-
-Options:
-  -o, --output OUTPUT       Output PDF file or directory
-  -s, --style STYLE         CSS stylesheet for PDF styling
-  -r, --recursive           Process directories recursively
-  -m, --merge               Merge all input files into a single PDF
 ```
 
-## Required Dependencies
+## Dependencies
 
-Install all required dependencies:
+- Python packages: `openai`, `python-dotenv`, `tqdm`, `markdown`, `weasyprint`
+- System tools: `pdftk` (for PDF merging), `wkhtmltopdf` (optional, for better title pages)
+- OpenAI API key in `.env` file
 
+## Example Workflows
+
+### Complete Translation Workflow
 ```bash
-pip install -r requirements.txt
+# Process everything from start to finish
+./batch_run_all.sh
+
+# This creates:
+# - All individual PDFs in translations/pdf/
+# - Campaign_Guide_Complete.pdf in translations/
+# - Reference_Chapters.pdf in translations/
+# - Reference_Appendices.pdf in translations/
 ```
 
-For the translation script, you'll need to create a `.env` file in the project root with your OpenAI API key:
+### Reference Materials Only
+```bash
+# Process and merge chapters separately
+./run_reference.sh -o "DM_Setup_Guide" chapters
 
-```
-OPENAI_API_KEY=your-api-key-here
+# Process and merge appendices separately  
+./run_reference.sh -o "Player_Reference" appendices
 ```
 
-Required Python packages:
-- For translation: `openai`, `python-dotenv`, `tqdm`
-- For PDF generation: `markdown`, `weasyprint`, `tqdm`
+### Custom Processing
+```bash
+# Translate everything but don't merge
+./batch_run_all.sh -s translate all
+
+# Later, create PDFs and merge
+./batch_run_all.sh -s pdf all
+```
+
+This organization allows for flexible distribution:
+- Give players just the reference materials
+- Share the complete campaign guide with other DMs
+- Maintain individual sections for specific use cases

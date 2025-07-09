@@ -462,6 +462,34 @@ La Rêveuse, bien que mélancolique et rêveuse, ne s'oppose pas à la présence
 </div>
 
 Si les joueurs apportent à la Rêveuse du réconfort et de l'assurance, une arche de brume tourbillonnante apparaît à proximité, pointant vers le nord. Si les joueurs la traversent, ils émergent dans [[#U3i. Lac Zarovich]].
+## U3h. La Demoiselle Solitaire
+Lorsque les joueurs émergent de [[#U2g. Attaque sur le Sanctuaire du Marais]], lisez :
+
+<div class="description">
+<p>Vous passez sous l'arche et émergez dans une clairière boisée sous un ciel étoilé et nocturne. Au loin, des tentes en bois et en peau d'animal entourent un feu de joie rugissant. La lumière du feu éclaire des dizaines d'hommes, de femmes et d'enfants qui chantent, dansent et rient en dessous.</p>
+<p>Non loin de là, une jeune femme est assise au sommet d'un rocher à moitié enfoui dans les bois. Elle serre ses jambes contre sa poitrine, son menton reposant sur ses genoux. Son regard semble fixé sur le feu au loin.</p>
+</div>
+
+La femme est la Rêveuse, la sœur cadette des Dames des Sanctuaires, et la déesse de l'hiver, du repos, de l'espoir et du froid de la tombe. Si les joueurs s'approchent d'elle, lisez :
+
+<div class="description">
+<p>Vos pieds crissent dans l'herbe, devenue froide et glacée. En vous approchant, vous pouvez voir qu'une fine couche de givre recouvre le rocher de la femme, et votre souffle se condense dans l'air froid. Un petit parterre de fleurs sauvages l'entoure, chacune gelée et scintillante de glace.</p>
+</div>
+
+La Rêveuse, bien que mélancolique et rêveuse, ne s'oppose pas à la présence des joueurs. Si on lui parle, elle peut partager les informations suivantes :
+
+* Elle a eu de nombreux noms, mais la plupart l'appellent "Rêveuse". (Si on le lui demande, la Rêveuse peut aussi confirmer amèrement qu'on l'appelle parfois "Dame Hiver", bien qu'elle grimace à ce nom.)
+* Elle est la plus jeune de ses sœurs. "Ils"—elle hoche la tête vers les danseurs près du feu—ont toujours aimé ses trois sœurs aînées pour la croissance, la vie et la récolte qu'elles apportent. "Je ne suis pas la bienvenue à leurs feux," dit-elle amèrement. "Pas comme mes sœurs le sont."
+* Si les joueurs le demandent, elle confirme que les noms de ses sœurs sont Tisseuse, Chasseresse et Chercheuse, bien que ses yeux deviennent durs à la mention de leurs noms.
+
+À un moment approprié de la conversation, lisez :
+
+<div class="description">
+<p>Un petit papillon, aux ailes violettes pâles, descend en voletant des arbres au-dessus. La jeune femme tend un doigt, et le papillon s'y accroche, perché délicatement sur son articulation.</p>
+<p>Ses yeux s'attardent sur le papillon, puis se tournent avec nostalgie vers le feu au loin. "Pourquoi me détestent-ils tant ?" demande-t-elle. Sa voix est rauque—comme si elle retenait un sanglot—et de petites larmes gelées se rassemblent aux coins de ses yeux.</p>
+</div>
+
+Si les joueurs apportent à la Rêveuse du réconfort et de l'assurance, une arche de brume tourbillonnante apparaît à proximité, pointant vers le nord. Si les joueurs la traversent, ils émergent dans [[#U3i. Lac Zarovich]].
 ## U3i. Lac Zarovich
 Lorsque les joueurs émergent de [[#U3g. La Demoiselle Solitaire]], lisez :
 
@@ -526,6 +554,73 @@ Si les joueurs vainquent le Cœur du Rêveur, lisez :
 
 <div class="description">
 <p>Le grand papillon émet un cri aigu et douloureux. Lentement, le brouillard de sa forme commence à se dissiper, même si le brouillard qui vous entoure tourbillonne, puis se retire lentement. Tandis que vous regardez, les murs de brouillard fondent, tombant vers l'ouest, alors que les eaux sombres du lac Zarovich et les lumières lointaines de Vallaki réapparaissent. Il ne reste rien d'autre que le silence de la nuit sombre et le clapotis des vagues contre le rivage.</p>
+</div>
+
+Lorsque le mur de brouillard se retire, tous les Baroviens consommés par celui-ci sont renvoyés à leurs emplacements d'origine, éveillés et indemnes.
+## U3i. Lac Zarovich
+Lorsque les joueurs émergent de [[#U3h. La Demoiselle Solitaire]], lisez :
+
+<div class="description">
+<p>Vous passez sous l'arche—et émergez à l'embouchure d'une rivière familière, où les eaux d'un lac de montagne sombre s'écoulent vers le sud dans des bois sombres. Une petite cabane grossièrement construite se tient à l'écart près du bord de l'eau, ses poutres usées et vieillies par le temps. Non loin de là se trouve une vieille dalle de pierre, reposant sur un cercle de pierre fissuré et moussu sous une légère couche de neige. La zone est encerclée par un cylindre de brouillard ombragé, qui s'étend sur un quart de mile de largeur. Dans le ciel au-dessus, treize étoiles se tiennent en parfait alignement au milieu d'un ensemble de cieux impossibles.</p>
+<p>La rivière et le lac sont tous deux gelés, et une épaisse couche de glace les recouvre. Au loin, au-delà du bord du brouillard, vous pouvez entendre un vent hurlant—mais les vents sont calmes ici, comme l'œil d'une tempête.</p>
+<p>Un énorme papillon, fait de brouillard et de brume tourbillonnante, plane au-dessus du lac gelé au nord. Le papillon fait face à l'est—et alors qu'une pulsation de lumière cramoisie éclate à travers le brouillard oriental, l'air semble <em>trembler</em> autour de lui, un bourdonnement profond et résonant émanant des ailes du papillon alors qu'il s'illumine d'un violet profond et en colère.</p>
+</div>
+
+Les joueurs qui ont déjà visité cet endroit dans [[Arc E - La Vistana Disparue#E4. Lac Zarovich|Arc E - La Vistana Disparue]] le reconnaissent comme l'embouchure de la rivière Luna, qui s'écoule du lac Zarovich à côté de la cabane de Szoldar et Yevgeni. Les joueurs peuvent également reconnaître les étoiles et le ciel comme la vue de la Grande Conjonction de nos jours.
+
+Si les joueurs enquêtent sur la dalle, ils découvrent qu'elle porte une gravure d'un papillon, ses rainures tapissées de lichen et de mousse.
+
+Si les joueurs enquêtent sur la cabane, ils découvrent qu'elle contient du matériel de chasse et diverses peaux d'animaux, mais est autrement vide.
+
+Le papillon est le cœur du Rêveur. Bien que le vestige du Rêveur ait été retiré de son cadavre et scellé dans le Temple d'Ambre il y a des millénaires, le papillon conserve encore une partie du pouvoir du Rêveur, surtout maintenant que Strahd utilise le vestige du Rêveur pour canaliser les réserves de pouvoir au sein du Cœur de Chagrin.
+
+Le cœur du Rêveur a les statistiques d'un **aboleth**, avec les modifications suivantes :
+
+* Il a une résistance aux dégâts contondants, perforants et tranchants des armes non magiques, et une immunité aux dégâts de froid.
+* Il a une vitesse de vol de 40 pieds, et pas de vitesse de nage.
+* Il comprend le sylvain, mais ne peut pas le parler, et ne parle pas le langage profond.
+* Il peut comprendre la langue parlée de toute créature avec laquelle il communique télépathiquement, mais ne peut communiquer télépathiquement qu'en envoyant des images, des émotions et des sensations.
+* Il n'a pas les caractéristiques **amphibie**, **nuage de mucus**, et **restauration eldritch** de l'aboleth.
+* Il peut effectuer trois attaques de Tentacule à son tour, au lieu de deux.
+* Il ne peut pas utiliser ses actions légendaires. À la place, il peut utiliser chaque réaction légendaire uniquement en tant que réaction, avec le déclencheur suivant : Une créature hostile termine son tour.
+* Il peut prendre jusqu'à trois réactions par round, mais seulement une par tour. Si le cœur du Rêveur devait perdre ses réactions et n'est pas inconscient, il perd une réaction à la place.
+* Il gagne la réaction suivante : ***Indomptable.*** **Déclencheur :** Une créature hostile termine son tour. **Effet :** Le cœur du Rêveur peut répéter le jet de sauvegarde contre un effet ou une condition qui l'affecte actuellement. (Cette réaction n'a aucun effet si l'effet ou la condition n'exigeait pas initialement qu'il échoue à un jet de sauvegarde.)
+* Une cible qui perd ses souvenirs à cause de l'action ***consommer les souvenirs*** du cœur retrouve ses souvenirs lorsque le cœur meurt.
+
+Si les joueurs s'adressent au cœur du Rêveur par le nom du Rêveur et lui montrent de la compassion, le Rêveur leur envoie la vision télépathique suivante :
+
+<div class="description">
+<p><em>Scintillement.</em> Vous voyez dans votre esprit l'atterrissage d'une tour sombre. Un cœur cramoisi et cristallin de la taille d'un homme flotte au-delà, générant un pilier de lumière cramoisie qui inonde les fenêtres et se projette vers le ciel. À l'intérieur du cœur, la lumière se réfracte à travers une volute de ténèbres fragiles. Elle se tord dans l'agonie et le désespoir, sa souffrance observée attentivement par une ombre grande et décharnée enveloppée de ténèbres.</p>
+</div>
+
+La volute de ténèbres est le vestige du Rêveur. L'ombre décharnée est Strahd.
+### Persuader le Cœur du Rêveur
+Si les joueurs parviennent à communiquer avec le cœur du Rêveur et promettent de libérer le vestige du Rêveur de son tourment, lisez :
+
+<div class="description">
+<p>Le grand papillon émet un bourdonnement bas et plaintif. Lentement, le brouillard de sa forme commence à se dissiper, même si le brouillard qui vous entoure tourbillonne, puis se retire lentement. Alors que vous regardez, les murs de brouillard fondent, tombant vers l'ouest, alors que les eaux sombres du lac Zarovich et les lumières lointaines de Vallaki réapparaissent. Il ne reste que le silence de la nuit sombre, le clapotis des vagues contre le rivage, et une faible lueur de lumière violette.</p>
+<p>La lueur de lumière descend dans l'air devant vous, sa forme se résolvant en un essaim de petits papillons éthérés. Ils flottent patiemment dans l'air devant vous—comme s'ils attendaient d'être réclamés.</p>
+</div>
+
+Chaque papillon est une *bénédiction du Rêveur.* Il y a suffisamment de bénédictions pour chaque personnage qui a aidé à calmer le Rêveur.
+
+Un joueur peut réclamer sa *bénédiction du Rêveur* en la saisissant ou en la touchant, ou en l'invitant à entrer en lui. S'il le fait, lisez :
+
+<div class="description">
+<p>Un petit tatouage noir en forme de papillon apparaît dans la paume de votre main.</p>
+</div>
+
+> [!item]+ **Bénédiction du Rêveur**
+> Un personnage qui réclame la *bénédiction du Rêveur* récupère immédiatement tous ses points de vie et ses points de vie maximum. De plus, lorsqu'il est en Barovie, chaque fois qu'un personnage possédant la *bénédiction du Rêveur* serait réduit à 0 point de vie mais pas tué sur le coup, il peut tomber à 1 point de vie à la place. Il ne peut pas utiliser cette caractéristique à nouveau avant d'avoir terminé un long repos.
+
+Lorsque le mur de brouillard se retire, tous les Baroviens consommés par celui-ci sont renvoyés à leurs emplacements d'origine, éveillés et indemnes.
+### Combattre le Cœur du Rêveur
+Si les joueurs attaquent le Cœur du Rêveur ou le mettent en colère, il les attaque et combat jusqu'à la mort.
+
+Si les joueurs vainquent le Cœur du Rêveur, lisez :
+
+<div class="description">
+<p>Le grand papillon pousse un cri aigu et douloureux. Lentement, le brouillard de sa forme commence à se dissiper, même si le brouillard qui vous entoure tourbillonne, puis se retire lentement. Alors que vous regardez, les murs de brouillard fondent, tombant vers l'ouest, alors que les eaux sombres du lac Zarovich et les lumières lointaines de Vallaki réapparaissent. Il ne reste que le silence de la nuit sombre et le clapotis des vagues contre le rivage.</p>
 </div>
 
 Lorsque le mur de brouillard se retire, tous les Baroviens consommés par celui-ci sont renvoyés à leurs emplacements d'origine, éveillés et indemnes.
@@ -600,6 +695,77 @@ La porte du Matin est attaquée par les morts-vivants suivants :
 * Un **répandeur de peste zombie**
 
 En combat, les zombies tentent de se masser autour des portes et des murs, attirant le feu jusqu'à ce que le répandeur de peste puisse atteindre les défenseurs avec son ***miasme virulent***.
+## U3j. La Porte du Matin
+### Arrivée à la Porte
+Si des joueurs rejoignent Lady Wachter pour aider à la défense de Vallaki contre la horde de morts-vivants, lisez ce qui suit lorsqu'ils arrivent à la porte est du Matin :
+
+<div class="description">
+<p>Une petite mer de Vallakiens à l'air sombre et anxieux se tient près de la porte est. Certains vous sont familiers. Tous sont armés.</p>
+</div>
+
+Peu après l'arrivée des joueurs, Lady Wachter annonce leur présence. Lisez :
+
+<div class="description">
+<p>Lady Wachter s'éclaircit la gorge, puis monte sur une caisse en bois. “Votre attention, s'il vous plaît !" Alors que les têtes se tournent vers elle, elle tend une main vers vous. “Ces guerriers—non, <em>héros</em>—dirigeront notre défense. Nous avons peu de temps avant l'arrivée des morts-vivants, alors je m'attends à ce que vous leur obéissiez sans question. Ai-je été claire ?"</p>
+<p>Une mer de hochements de tête et un chœur de grognements affirmatifs lui répondent. Elle hoche la tête avec satisfaction, puis se tourne vers vous, brandissant sa masse, puis s'incline. “Je les laisse entre vos mains capables. Ils—et moi—sont à votre disposition."</p>
+</div>
+
+Peu après l'annonce de Lady Wachter, elle et les joueurs sont approchés par le **fanatique du culte** Andrej, accompagné de Szoldar Szoldarovich et Yevgeni Krushkin. Ils peuvent partager les informations suivantes :
+
+* Selon Andrej, la garde de la ville a abattu environ une douzaine de zombies jusqu'à présent, mais des ombres dans les bois suggèrent que d'autres approchent.
+* Selon Szoldar et Yevgeni, qui viennent de revenir d'une reconnaissance dans les bois de l'est, plusieurs dizaines de morts-vivants approchent rapidement, mais se sont divisés en trois groupes. Un groupe semble se diriger vers la porte est du Matin, un autre se dirige vers la porte nord de Zarovich, et un autre se dirige vers le mur sud-est de Vallaki, près de l'Arasek Stockyard. Tous les morts-vivants ont les mêmes yeux rouges cramoisis et le même insigne lumineux sur leur front.
+* Selon Szoldar et Yevgeni, la horde dans son ensemble est dirigée par un zombie à la chair pâle respirant de la fumée rouge (un **zombie propagateur de peste**). Ce zombie semble se diriger vers la porte du Matin.
+* Selon Szoldar et Yevgeni, plusieurs des zombies semblent être mutés de manière étrange, avec des corps massifs et gonflés ou des membres longs et effilés.
+* Selon Andrej, il a rassemblé la force suivante pour aider à la défense de la ville : six **gardes**, six **cultistes** (qu'Andrej appelle “membres de la milice de Lady Wachter"), deux autres **fanatiques du culte** (Boris et Miruna, qu'Andrej appelle “associés de Lady Wachter"), douze **roturiers** (qu'Andrej appelle “citoyens"), et divers autres, y compris Nikolai et Karl Wachter (**nobles**), Victor Vallakovich, Père Lucian Petrovich, Urwin Martikov, Danika Dorakova, Gadof Blinsky, et (s'ils sont encore en vie et à Vallaki) Milivoj et Henrik van der Voort.
+### Organisation de la Défense
+Après qu'Andrej, Szoldar et Yevgeni ont livré leurs rapports, Lady Wachter invite les joueurs à diviser les Vallakiens de la manière qu'ils choisissent. Une fois qu'ils l'ont fait, Lady Wachter invite les joueurs à diriger ou orienter les groupes qu'ils ont formés vers les trois points où les morts-vivants devraient attaquer : la porte du Matin, la porte de Zarovich, et le mur sud-est.
+
+Avant que les joueurs ne partent, Lady Wachter les avertit que, bien que la défense immédiate de Vallaki soit d'une importance capitale, ils pourraient vouloir préserver le gros de leurs forces pour les batailles qui pourraient suivre. “Je peux me tromper," dit-elle doucement. “Mais ce combat ressemble à un présage d'horreurs à venir."
+
+> [!info]+ **Vallakiens en Guerre**
+> Utilisez les noms et descriptions suivants pour les membres anonymes de la force de défense de Vallaki :
+>
+> * Yelena et Vesna, sœurs jumelles **gardes** dans la vingtaine
+> * Dunja, une **roturière** boulangère d'âge moyen et veuve
+> * Faina & Bronislav, jeunes parents **roturiers** d'une paire de tout-petits, actuellement gardés par les parents de Bronislav
+> * Milosh, Dobroslav & Radovan, trois jeunes hommes **cultistes** en quête d'aventure et de gloire
+> * Volodimeru, un tailleur d'âge moyen, silencieux et quelque peu maladroit, et célibataire **roturier**
+> * Dmitrei & Chestirad, parents adoptifs **roturiers** mariés d'une paire d'orphelins baroviens
+> * Aleksandru & Darya, un **garde** et sa fiancée **roturière**
+> * Yaromir, Svetlana, Vlastimir & Darya, deux parents **roturiers** d'âge moyen et leurs deux enfants adultes **gardes**
+> * Koladin, un capitaine **garde** grincheux et bourru dans la vingtaine
+> * Adomir et Shalana, une paire sociable de **cultistes** fiancés
+> * Sadek, un tanneur **cultiste** d'âge moyen et à la langue acérée
+> * Raisa & Radomi & Iskra, trois frères et sœurs **roturiers** dans la fin de l'adolescence avec des parents malades
+
+> [!info]+ **Portes et Murs**
+> Les murs de la ville de Vallaki sont décrits dans <span class="citation">Approcher la Ville (p. 95)</span>. Chaque porte est décrite dans <span class="citation">Portes de la Ville (p. 95)</span>, et a une CA de 19 et 20 points de vie.
+
+> [!info]+ **L'Approche des Zombies**
+> En combat, un épais voile de brume entoure les murs de l'est de Vallaki à une distance de trente pieds. Les créatures dans cette brume sont fortement obscurcies, et ne peuvent être vues jusqu'à ce qu'elles émergent.
+### La Porte de Zarovich
+La porte de Zarovich est attaquée par les morts-vivants suivants :
+
+* Vingt **zombies**
+* Deux **hulks zombies** (utilisez les statistiques d'un **ogre zombie**)
+* Deux **nuées de chauves-souris**
+
+En combat, les hulks tentent de défoncer la porte, tandis que les zombies ordinaires tentent de s'empiler les uns sur les autres pour franchir les murs voisins. (Pour ce faire, trois zombies doivent se tenir sur les épaules les uns des autres.)
+### Le Mur Sud
+Le mur sud-est de Vallaki est attaqué par les morts-vivants suivants :
+
+* Vingt **zombies**
+* Trois **zombies sauteurs** (utilisez les statistiques de **chokers** (<span class="citation">Monstres du Multivers, p. 76)</span>
+* Deux **nuées de chauves-souris**
+
+En combat, les trois sauteurs tentent de grimper directement sur le mur, tandis que les zombies ordinaires tentent de s'empiler les uns sur les autres pour atteindre le sommet. (Pour ce faire, trois zombies doivent se tenir sur les épaules les uns des autres.)
+### La Porte du Matin
+La porte du Matin est attaquée par les morts-vivants suivants :
+
+* Seize **zombies**
+* Un **zombie propagateur de peste**
+
+En combat, les zombies tentent de se masser autour des portes et des murs, attirant le feu jusqu'à ce que le propagateur de peste puisse atteindre les défenseurs avec son ***miasme virulent***.
 ## U3k. Conséquences
 
 Peu de temps après que les joueurs se soient réunis suite à [[#U3i. Lac Zarovich]] et [[#U3j. La Porte du Matin]], après qu'eux et leurs compagnons aient eu l'occasion de célébrer, un Urwin Martikov sombre—ou Danika Dorakova, si Urwin est mort—rend visite aux joueurs et partage les informations suivantes, relayées par ses éclaireurs corbeaux :
@@ -614,6 +780,23 @@ Peu de temps après que les joueurs se soient réunis suite à [[#U3i. Lac Zarov
 
 > [!info]+ **Équipement Gratuit**
 > Si les joueurs ont besoin de matériel avant de quitter Vallaki, Dame Wachter et les autres habitants de Vallaki sont heureux de l'obtenir rapidement pour eux, gratuitement, en reconnaissance de leur héroïsme et pour soutenir leurs efforts pour vaincre Strahd.
+
+> [!abstract]+ **Recruter des Alliés**
+> Les joueurs ne peuvent recruter aucun allié autre qu'Ireena Kolyana et Ezmerelda d’Avenir pour leur voyage au Château Ravenloft. Tous les autres personnages, bien que reconnaissants et honorés par l'invitation, insistent pour rester en arrière afin de défendre leurs maisons, familles, amis et voisins contre l'incursion des morts-vivants. (Comme le dit Victor Vallakovich si on lui demande—pâle, mais déterminé—« Si nous allions tous avec vous au Château Ravenloft, qui resterait pour protéger tout le monde pendant que vous combattez ? Allez—nous resterons ici pour nous assurer que tout le monde est encore en vie à votre retour. »)
+## U3k. Conséquences
+
+Peu de temps après que les joueurs se soient réunis suite à [[#U3i. Lac Zarovich]] et [[#U3j. La Porte du Matin]], après qu'eux et leurs compagnons aient eu l'occasion de célébrer, un Urwin Martikov sombre—ou Danika Dorakova, si Urwin est mort—rend visite aux joueurs et partage les informations suivantes, relayées par ses éclaireurs corbeaux :
+
+* Une armée de morts-vivants cent fois plus grande que la dernière—ou plus—approche de Vallaki par l'est, voyageant le long de l'Ancienne Route de Svalich.
+* D'autres hordes de morts-vivants se sont levées à travers Barovia, des terrasses de Yester Hill aux falaises du Mont Ghakis, des profondeurs du Lac Zarovich et à la base des Chutes de Tser. Plusieurs des autres hordes semblent se diriger vers les villages de Krezk et Barovia.
+* Chaque armée est dirigée par au moins un **propagateur de peste zombie**—un mort-vivant à la chair pâle exhalant une brume cramoisie—et tous les morts-vivants portent des yeux rouges et le même symbole cramoisi lumineux sur leur front : le blason du Château Ravenloft.
+* Selon les estimations d'Urwin, l'armée lente de l'est arrivera dans environ cinq heures, bien que ses éclaireurs arrivent plus tôt et que ses réserves arrivent en dernier. (Le voyage jusqu'au Château Ravenloft dure un peu moins de quatre heures à pied, donnant aux joueurs un peu plus d'une heure pour se reposer avant que le gros de l'armée n'arrive.)
+
+> [!abstract]+ **Les Morts-Vivants**
+> Les armées de morts-vivants sont animées par le pouvoir que Strahd canalise depuis le Cœur du Chagrin, comme l'indiquent leurs yeux rouges et les symboles sur leur front. Pour les arrêter, les joueurs doivent tuer Strahd avant que les établissements de Barovia ne soient détruits. Si les joueurs ne parviennent pas à cette conclusion eux-mêmes, Lady Wachter, le Père Lucian, Victor Vallakovich, Ezmerelda d’Avenir, ou un personnage similaire peut le suggérer à la place.
+
+> [!info]+ **Articles Gratuits**
+> Si les joueurs ont besoin de matériel avant de quitter Vallaki, Lady Wachter et les autres habitants de Vallaki sont heureux de l'obtenir rapidement pour eux, gratuitement, en reconnaissance de leur héroïsme et pour soutenir leurs efforts pour vaincre Strahd.
 
 > [!abstract]+ **Recruter des Alliés**
 > Les joueurs ne peuvent recruter aucun allié autre qu'Ireena Kolyana et Ezmerelda d’Avenir pour leur voyage au Château Ravenloft. Tous les autres personnages, bien que reconnaissants et honorés par l'invitation, insistent pour rester en arrière afin de défendre leurs maisons, familles, amis et voisins contre l'incursion des morts-vivants. (Comme le dit Victor Vallakovich si on lui demande—pâle, mais déterminé—« Si nous allions tous avec vous au Château Ravenloft, qui resterait pour protéger tout le monde pendant que vous combattez ? Allez—nous resterons ici pour nous assurer que tout le monde est encore en vie à votre retour. »)

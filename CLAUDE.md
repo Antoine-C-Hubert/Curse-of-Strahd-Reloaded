@@ -33,9 +33,13 @@ The repository contains four main Python scripts in the `/app` directory for han
      - `-r, --recursive`: Process directories recursively
      - `-m, --merge`: Merge all input files into a single PDF
 
-## Unified Script
+## Translation Scripts
 
-The repository includes a `run.sh` script in the `/scripts` directory that provides a single, unified interface for handling the entire translation workflow:
+The repository includes several scripts in the `/scripts` directory for different translation workflows:
+
+### Main Campaign Guide Script
+
+The `run.sh` script provides a unified interface for processing individual files from the main campaign guide:
 
 ```bash
 Usage: ./scripts/run.sh [OPTIONS] <markdown_file>
@@ -49,39 +53,97 @@ Options:
   -o, --output FILE        Specify output PDF file name (without extension)
 ```
 
-### Complete workflow example:
+### Reference Materials Script
+
+The `run_reference.sh` script handles Chapter folders and Appendices separately from the main guide:
 
 ```bash
-./scripts/run.sh "Act III - The Broken Land/Act III Summary.md"
+Usage: ./scripts/run_reference.sh [OPTIONS] [TARGET]
+
+Targets:
+  chapters                 Process all Chapter folders
+  appendices              Process all Appendices
+  all                     Process both chapters and appendices (default)
+
+Options:
+  -h, --help               Show this help message
+  -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)
+  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)
+  -c, --css FILE           Specify CSS file for PDF styling
+  -o, --output FILE        Specify output PDF file name (creates combined PDF)
 ```
 
-### Run specific steps:
+### Comprehensive Batch Processing
+
+The `batch_run_all.sh` script processes everything in one go:
 
 ```bash
-# Only split the file
-./scripts/run.sh -s split "Act III - The Broken Land/Act III Summary.md"
+Usage: ./scripts/batch_run_all.sh [OPTIONS] [TARGET]
 
-# Only translate (requires previous split)
+Targets:
+  guide                   Process main campaign guide files (using files_list.txt)
+  chapters                Process all Chapter folders
+  appendices              Process all Appendices
+  reference               Process both chapters and appendices
+  all                     Process everything (default)
+
+Options:
+  --no-guide-merge        Skip merging the main guide into a single PDF
+  --no-reference-merge    Skip merging reference materials into combined PDFs
+```
+
+## Workflow Examples
+
+### Processing Individual Files
+
+```bash
+# Complete workflow for a single file
+./scripts/run.sh "Act III - The Broken Land/Act III Summary.md"
+
+# Only translate a file (requires previous split)
 ./scripts/run.sh -s translate "Act III - The Broken Land/Act III Summary.md"
 
-# Only concatenate (requires previous translation)
-./scripts/run.sh -s concat "Act III - The Broken Land/Act III Summary.md"
-
-# Only generate PDF (requires previous concatenation)
-./scripts/run.sh -s pdf "Act III - The Broken Land/Act III Summary.md"
+# Generate PDF with custom styling
+./scripts/run.sh -s pdf -c publish.css "Act III - The Broken Land/Act III Summary.md"
 ```
 
-### PDF generation with different layouts:
+### Processing Reference Materials
 
 ```bash
-# Generate PDF with default two-column layout
-./scripts/run.sh -s pdf "Act III - The Broken Land/Act III Summary.md"
+# Process all reference materials
+./scripts/run_reference.sh
 
-# Generate single-column PDF (override default)
-./scripts/run.sh -s pdf -c publish.css "Act III - The Broken Land/Act III Summary.md"
+# Process only chapters with combined PDF output
+./scripts/run_reference.sh -o "Chapters_Guide" chapters
 
-# Generate PDF for multiple files with custom output name
-./scripts/run.sh -s pdf -o "Complete_Campaign_Guide" "Act I - Into the Mists/Act I Summary.md" "Act II - The Shadowed Town/Act II Summary.md"
+# Only translate appendices
+./scripts/run_reference.sh -s translate appendices
+```
+
+### Batch Processing Everything
+
+```bash
+# Process everything with default settings
+./scripts/batch_run_all.sh
+
+# Process only the main guide
+./scripts/batch_run_all.sh guide
+
+# Process everything but skip PDF merging
+./scripts/batch_run_all.sh --no-guide-merge --no-reference-merge all
+```
+
+### PDF Merging
+
+```bash
+# Merge main guide PDFs into complete guide
+./scripts/merge_pdfs.sh
+
+# Merge reference materials separately
+./scripts/merge_reference_pdfs.sh
+
+# Create custom reference merge
+./scripts/merge_reference_pdfs.sh -o "Custom_Reference" chapters
 ```
 
 The CSS files for styling are stored in the `templates/` directory:
@@ -130,6 +192,27 @@ The complete translation workflow follows these steps:
 2. **Translate** split files → `translations/splits_translated/`
 3. **Concatenate** translated files → `translations/translated_grouped/` 
 4. **Generate PDFs** from translated files → `translations/pdf/`
+
+## Output Files
+
+The translation process creates several types of output files:
+
+### Individual PDFs
+- Each markdown file produces a separate PDF in `translations/pdf/`
+- Individual Chapter files: `Character Creation.pdf`, `Session Zero.pdf`, etc.
+- Individual Appendices files: `Amber Shards.pdf`, `Glossary.pdf`, etc.
+- Campaign guide files: `Act I Summary.pdf`, `Arc A - Escape From Death House.pdf`, etc.
+
+### Merged PDFs (stored in `translations/`)
+- **Campaign_Guide_Complete.pdf** - Complete main campaign guide (from `merge_pdfs.sh`)
+- **Reference_Chapters.pdf** - All Chapter materials combined (from `merge_reference_pdfs.sh`)
+- **Reference_Appendices.pdf** - All Appendices combined (from `merge_reference_pdfs.sh`)
+- Custom named PDFs when using the `-o` option with various scripts
+
+This separation allows you to:
+- Distribute the main campaign guide separately from reference materials
+- Provide players with just the reference materials they need
+- Maintain modular access to individual sections
 
 ## Python Formatting
 

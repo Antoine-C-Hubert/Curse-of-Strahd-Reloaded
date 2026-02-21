@@ -8,4 +8,7 @@ translations/splits_translated/
 .env
 .obsidian/*.json
 
+.DS_Store
+.idea/
+
 **/.claude/settings.local.json

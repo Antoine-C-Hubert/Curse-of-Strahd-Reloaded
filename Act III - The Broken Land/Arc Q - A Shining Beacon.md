@@ -171,7 +171,7 @@ Regardless of his own disappointment, Clovin is determined to make good on his p
 * One set resembles bird wings and bears hundreds of large, downy feathers plucked from the Abbot's giant eagle form, while the other resembles bat wings and bears long membranes of tanned animal hide.
 * A creature can attune itself to the wings in 1 minute.
 ## Q3b. Confronting the Abbot
-The players can find the Abbot in the Abbey’s asylum, which is largely as described in <span class="citation">S15. Madhouse (p. 151)</span>. However, the players overhear the following conversation as they approach and enter this area:
+The players can find the Abbot in the Abbey’s asylum, which is largely as described in <span class="citation">S15. Madhouse (p. 151)</span>, however the cells housing the Belviews have iron bars that allow them to witness the scene. Also, the players overhear the following conversation as they approach and enter this area:
 
 <div class="description">
 <p>A handsome young man in monk’s robes stands halfway down the hall, a prayer book tucked beneath one arm—the Abbot. Before him stands a dainty woman wearing a tattered gown, her head bowed in silent acquiescence—Vasilka. The flesh golem stands behind them, its grotesque form towering above them in the shadows.</p>
@@ -748,7 +748,7 @@ Kiril then attacks.
 <hr>
 <strong>Armor Class</strong> 16 (Natural Armor)
 <br>
-<strong>Hit Points</strong> 306 (36d12 + 144)
+<strong>Hit Points</strong> 304 (32d10+128)
 <br>
 <strong>Speed</strong> 50 ft. in hybrid or dire wolf form (30 ft. in humanoid form)
 <hr>
@@ -812,7 +812,7 @@ Kiril then attacks.
 <hr>
 <strong>Armor Class</strong> 17 (Natural Armor)
 <br>
-<strong>Hit Points</strong> 306 (36d12 + 144)
+<strong>Hit Points</strong> 304 (29d12+116)
 <br>
 <strong>Speed</strong> 30 ft.
 <hr>
@@ -842,7 +842,7 @@ Kiril then attacks.
 <strong>Saving Throws</strong> Strength +11, Constitution +10<br>
 <strong>Skills</strong> Perception +5<br>
 <strong>Condition Immunities</strong> frightened<br>
-<strong>Senses</strong> passive Perception 14<br>
+<strong>Senses</strong> passive Perception 15<br>
 <strong>Languages</strong> Common<br>
 <strong>Challenge</strong> 18, or 17 without his regeneration<br>
 <strong>Proficiency Bonus</strong> +6<br>
@@ -873,6 +873,22 @@ Kiril then attacks.
 > Remember that Kiril's second phase, as a Huge creature, isn't slowed while grappling and dragging a Medium or smaller creature, as noted in <span class="citation">Moving a Grappled Target (Player's Handbook, p. 195)</span>.
 
 ## Q5c. Kiril Vanquished
+
+> [!info]+ **Bianca's Fate**
+> With Kiril struck down, Bianca’s reaction depends on the party’s past interactions with her. She is a woman caught between love, grief, and the trauma of a life under Kiril’s shadow.
+> 
+> **If the party has shown kindness, patience, and compassion:**
+> 
+> Bianca does not flee. She lingers among the werewolves, trembling, tears streaking her face as she stares at Kiril's body. "I mourn the monster he became," she says quietly, "but I still grieve the man I once loved." If asked about what she will do now, Bianca hesitates, then looks to the surviving werewolves. "If I stay," she says, hopefully, "perhaps I can help them toward a brighter future."
+> 
+> **If the party remained distant or neutral:**
+> 
+> Bianca stands frozen in shock, her eyes wide. After a long moment, she turns without a word and walks toward the forest’s edge. If the characters call after her or follow, she stops but does not turn around. "How could I possibly go back, after all he did?" she asks. "They’ll see him every time they look at me." She falls quiet, staring into the trees. "I just need to be somewhere else for a while. Somewhere he never was." If the players do not challenge this, she slips away into the forest.
+> 
+> **If the party alienated, threatened, or enraged her:**
+> 
+> When Kiril falls, Bianca’s grief transforms into fury. She screams, and in a blind surge of rage she launches herself at the players, fighting with abandon until she is slain
+
 
 Shortly after Kiril is defeated, if Emil is present, the **werewolves** amongst the pack assume their human forms to greet him. Read:
 

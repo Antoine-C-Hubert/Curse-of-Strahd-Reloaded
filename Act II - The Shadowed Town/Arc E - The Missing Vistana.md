@@ -16,7 +16,7 @@ If the players return to Vallaki, confront Rictavio, and persuade him that they�
 
 > [!lore]+ **Strahd’s Bounty**
 >
-> When Strahd received Madam Eva’s [[Act I - Into the Mists/Arc C - Into the Valley#C8. Black Carriage|most recent foretelling]], he learned that he could not control the raw power of the Fanes without a token of the *Rozana’s* divinity. Strahd also learned of two means by which he could obtain such a token: by sacrificing a memento of his past at the Whispering Wall by Yester Hill, or by securing a mortal descendant who bore a divine spark of the Ladies Three themselves. Strahd’s preference is, of course, the latter.
+> When Strahd received Madam Eva’s [[Act I - Into the Mists/Arc C - Into the Valley#C8. Crossroads of Ravenloft|most recent foretelling]], he learned that he could not control the raw power of the Fanes without a token of the *Rozana’s* divinity. Strahd also learned of two means by which he could obtain such a token: by sacrificing a memento of his past at the Whispering Wall by Yester Hill, or by securing a mortal descendant who bore a divine spark of the Ladies Three themselves. Strahd’s preference is, of course, the latter.
 >
 > Strahd knows that a descendant of one of the Ladies lives somewhere in the valley, and knows which signs will lead him to them. To this end, he has dispatched his spies across Barovia in search of them. Though Strahd doesn’t know it, his cupbearer and most recent consort—the **vampire spawn** Escher—has taken it upon himself to pursue the descendant as well.
 > 
@@ -884,7 +884,7 @@ Once he and the players are alone in his guest suite, Rictavio draws his sword-c
 <strong>Challenge</strong> 5 (1,800 XP)<br>
 <strong>Proficiency Bonus</strong> +3
 <hr>
-<p><strong><em>Special Equipment.</em></strong> Van Richten carries a <em>hat of disguise</em> and <em>ring of mind shielding</em>.</p>
+<p><strong><em>Special Equipment.</em></strong> Van Richten carries an <em>amulet of proof against detection and location</em>, a <em>charm bracelet</em>, a <em>hat of disguise</em>, a <em>lucid lens</em>, and a<em>ring of mind shielding</em>.</p>
 <p><strong><em>Sneak Attack.</em></strong> Once per turn, Van Richten can deal an extra 17 (5d6) damage to one creature he hits with an attack if he has advantage on the attack roll. He doesn’t need advantage on the attack roll if the target is undead; or if at least one of his allies is within 5 feet of the target, the ally doesn’t have the incapacitated condition, and he doesn’t have disadvantage on the attack roll.</p>
 <h3>Actions</h3>
 <p><strong><em>Multiattack.</em></strong> Van Richten makes two attacks with his silvered sword cane or silvered crossbow.</p>
@@ -979,7 +979,7 @@ If the players ask Van Richten for proof that Strahd sought to kidnap Arabelle, 
 
 <span class="credit">"Talisman of Echoes" by Caleb Cleveland. Support him on <a href="https://patreon.com/calebisdrawing/">Patreon!</a></span>
 
-Five sample answers a players might receive are given below:
+Five sample answers a player might receive are given below:
 
 * What is your name? *Yan.*
 * What lord did you serve in life? *The vampire, Strahd von Zarovich.*

@@ -640,7 +640,7 @@ If, after he has finished his story, the players ask Kasimir why he lied about h
 ## R4b. The Druids’ Vengeance
 The journey from the dusk elf encampment to the Raven River Crossroads is four and one-quarter miles and takes one hour and twenty-five minutes.
 
-This area is largely as described in <span class="citation">R. Raven River Crossroads (p. 40)</span>. However, the crossroads now hides three poisoned spiked pit traps (<span class="citation">Dungeon Master’s Guide, p. 122</span>), concealed as described in <span class="citation">False Trail (p. 30)</span>. 
+This area is largely as described in <span class="citation">R. Raven River Crossroads (p. 40)</span>. However, the crossroads now hides three poisoned spiked pit traps (<span class="citation">Dungeon Master’s Guide, p. 122</span>), concealed as described in <span class="citation">False Trail (p. 30)</span>. A player with a passive Wisdom (Perception) score of 15 or greater or who succeeds on a DC 15 Wisdom (Perception) check spots the pit traps.
 
 Together, the pit traps form a diagonal across the road that runs from the start of the path to Lake Baratok (lake path) to the start of the trail to Mt. Ghakis (mountain trail). A 2-foot-wide catwalk between each pit trap provides safe passage between them.
 
@@ -985,7 +985,7 @@ One hour after the players have begun their long rest, Strahd again scries and v
 
 If the door is answered, Strahd cordially requests permission to enter. If the players agree to do so, Strahd enters the tower, makes a critical comment regarding its interior and/or the players’ campsite, and instructs the players to meet him on the roof. He then assumes his mist form, flies to the tower roof, and resumes his original form. When the players join him, proceed to [[#Strahd’s Questions]].
 
-Otherwise, Strahd smiles coldly and asks if the players are familiar with the topography upon which their ill-chosen resting place lies. "This mountain," he adds, his voice touched with a sharp amusement, "is ancient, its crags shaped by millennia of erosion. The tower in which you currently stand is perched upon a cliffside—one that, in turn, rests upon a natural arch of stone. Nature’s formations are long-lived indeed, but to an immortal’s eyes, even they can grow withered with age." 
+Otherwise, Strahd smiles coldly and asks if the players are familiar with the topography upon which their ill-chosen resting place lies. "This mountain," he adds, his voice touched with a sharp amusement, "is ancient, its crags shaped by millennia of erosion. The tower in which you currently stand is perched upon a cliffside—one that, in turn, rests upon a natural overhang of stone. Nature’s formations are long-lived indeed, but to an immortal’s eyes, even they can grow withered with age." 
 
 Strahd pauses and allows his words to linger before continuing: "This particular formation, I regret to inform you, has worn thinner with each passing century. Should it collide with a force of suitable strength, I fear this lofty perch may not rest quite so high as it does now. Yet I am the Land—and for as long as I wish it, no harm shall come to its foundations."
 
@@ -1012,7 +1012,7 @@ If the players subsequently invite Strahd inside, he offers them a cold, mocking
 >
 > <hr> 
 > 
-> The characters have one round to vacate the tower. When the round ends, Strahd casts _lightning bolt_ to destroy the arch supporting the cliff’s weight. Read:
+> The characters have one round to vacate the tower. When the round ends, Strahd casts _lightning bolt_ to destroy the overhang supporting the cliff’s weight. Read:
 > 
 > <hr>
 > 
@@ -1479,7 +1479,7 @@ If a player follows the corridor, read:
 
 The western path leads to [[#The Trash Heap]], the eastern path leads to [[#The Amber Shrine]], and the southern path leads to [[#The Room of Regret]]. Each tunnel curves out of sight, obscuring whatever lies beyond.
 
-![[The Bodak Cave.png]]
+
 
 If the bodaks are active when the players enter this area, a player with a passive Wisdom (Perception) score of 16 or greater notices a silhouette briefly flicker across the wall of the eastern tunnel (leading to [[#The Amber Shrine]]). (The silhouette belongs to Deirdre, who has vacated [[#The Eastern Nest]] to investigate the newcomers. If the players approach the eastern tunnel, Deirdre exits [[#The Amber Shrine]] and returns to [[#The Eastern Nest]].)
 
@@ -2005,7 +2005,7 @@ Otherwise, the Mountain Folk intervene at initiative count 0 of the third round 
 > | Berserker | 5 | 4 | 3 | 2 |
 > | Gladiator | 2 | 2 | 2 | 2 |
 > | Scout | 5 | 4 | 2 | 1 |
-> | Shoosuva | 1 | 1 | 1 | 1|
+> | Shoosuva | 2 | 2 | 2 | 2|
 
 > [!profile]+ **Scorilo & Como**
 > **Roleplaying Information**

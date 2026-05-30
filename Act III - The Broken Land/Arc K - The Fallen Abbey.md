@@ -41,7 +41,7 @@ If the players have completed [[Arc J - The Stolen Gem]] and are looking to stay
 > 
 > Every two weeks, on the night of the full moon, Baroness Krezkova harvests a wolfsbane flower from the shores of Krezk’s blessed pool and brews a *potion of wolfsbane*, which she gives to Baron Krezkov to suppress the curse’s aggression. She then locks the Baron in silver shackles in the hidden basement beneath their cottage, where he transforms into a docile wolf at moonrise. Until recently, both Ilya and Kala were ignorant as to their family’s true nature, which their parents have kept a careful secret from both the village and their children.
 > 
-> One month ago, while constructing the **flesh golem** Vasilka, the Abbot of the Abbey of Saint Markovia determined that his creation required a living human heart, given willingly to strengthen its potency in “matters of the heart." After reviewing the family cemeteries within the village, the Abbot learned that Baroness Krezkova was, in fact, a direct descendant of the Federovna line and a distant relative of Tatyana Federovna. He decided that, as a blood descendant of Strahd's first love, she would therefore be a perfect candidate for Vasilka’s completion.
+> One month ago, while constructing the **flesh golem** Vasilka, the Abbot of the Abbey of Saint Markovia determined that his creation required a living human heart, given willingly to strengthen its potency in “matters of the heart." After reviewing the family cemeteries within the village, the Abbot learned that Baroness Krezkova was, in fact, a direct descendant of the Federovna line and a distant relative of Tatyana Federovna. He decided that, as a blood descendant of Strahd's first love, she would therefore be a perfect candidate for Vasilka’s completion. (The Abbot has no knowledge regarding Tatyana, other than he was told by the Vistani that she was his "one true desire".)
 > 
 > The Abbot, however, knew that the Baroness would never give him her heart willingly—and so, he developed a dark and cunning plot.
 > 
@@ -527,7 +527,7 @@ The Abbot guides the players to the doorway of the foyer of the East Wing, which
 
 <div class="description">
 <p>Just beyond the doorframe stands a towering figure exceeding seven feet in height, its shoulders broad and hulking. A patchwork of skin—varying in color, texture, and age—covers its body, crudely sewn together with thick, dark thread that zigzags across its form like a cartographer's nightmare. Muscles bulge unnaturally, as if overstuffed, and you can see places where the stitching has pulled tight, the skin almost tearing from the tension.</p>
-<p>Its eyes are deep, empty sockets filled with a dark, glassy material that reflects no light. Arms hang by its sides, each finger elongated and tipped with a jagged nail, resembling more the claws of a beast than the hands of a man.</p>
+<p>Its eyes are deep, hollow sockets filled with a dark, smooth material that reflects no light. Arms hang by its sides, each finger elongated and tipped with a jagged nail, resembling more the claws of a beast than the hands of a man.</p>
 </div>
 
 The Abbot asks the golem to “escort our guests to Miss d’Avenir’s chambers." The golem makes no verbal response, but turns and pauses, as if waiting for the players to follow it. If the players do so, the Abbot bids them farewell and returns to the main hall.

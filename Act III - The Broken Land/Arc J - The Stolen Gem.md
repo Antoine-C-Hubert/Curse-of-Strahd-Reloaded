@@ -239,7 +239,7 @@ In combat, the **vine blights** use their ***constrict*** attack to grapple enem
 As the players proceed past the pit trap, read:
 
 <div class="description">
-<p>The road continues, bending again as the trees begin to pull back from the path. Not far from the road, amidst a small grove of berry-bearing bushes stands an old stone stele standing just under six feet in height. It stands within a circle of old, cracked cobblestones, and seems to bear some kind of carving. /p>
+<p>The road continues, bending again as the trees begin to pull back from the path. Not far from the road, amidst a small grove of berry-bearing bushes stands an old stone stele standing just under six feet in height. It stands within a circle of old, cracked cobblestones, and seems to bear some kind of carving.</p>
 </div>
 
 If the players choose to investigate the slab, they find that it bears a carving of a wolf over an engraved three-pointed star.  (The slab is an ancient monument to the Huntress, and the three-pointed star the symbol of the Ladies Three. Unlike the other three slabs in Barovia, there is no lichen or moss on this monument, which is ordinarily well-maintained by the Martikovs. Although the Martikovs don't remember the names or natures of the Ladies of the Fanes, they retain a strong respect for Barovia's old gods.)
@@ -573,7 +573,7 @@ Silvia invites the players to approach the caged raven and see “the mark of th
 > 
 > In its current state, the damaged spigot has AC 10, 5 hit points, and immunity to piercing, poison, and psychic damage. If the spigot is reduced to 0 hit points, or if a creature successfully makes a DC 10 Strength check to break the spigot while within 5 feet, the vat bursts and releases a wave of wine that crashes down upon all creatures in a 15-foot cube to the north of the vat.
 > 
-> When this happens, each Small or smaller creature within that area must make a DC 15 Strength saving throw. On a failure, that creature is pushed 15 feet away from the vat and takes 7 (2d6) bludgeoning damage. (A swarm of Small or smaller creatures, such as the **swarm of twig blights**, must also make the saving throw.)
+> When this happens, each Small or smaller creature within that area must make a DC 15 Strength saving throw. On a failure, that creature is pushed 15 feet away from the vat, is knocked prone, and takes 7 (2d6) bludgeoning damage. (A swarm of Small or smaller creatures, such as the swarm of twig blights, must also make the saving throw.) On a successful save, the creature takes half as much damage, and is not pushed or knocked prone.
 > 
 > Once the vat bursts, all ground within a 20-foot radius becomes difficult terrain until the wine is cleaned up.
 
@@ -1006,54 +1006,7 @@ Muriel introduces the spirit as the **ghost** of Kavan, an ancestor of the Mount
 
 Kavan greets the players warmly, hailing them as warriors, and asking to know their "clans and victories." If asked about his own clan, his smile fades, and he declines to respond, noting only that his relationship with his people is complex.
 
-Once the players have introduced themselves, Muriel begins by informing Kavan that they’ve come to seek his knowledge of the druids of Yester Hill. As she does, Kavan notices something in the woods. Read:
-
-<div class="description">
-<p>You hear a rustling from the woods behind you, and the ravens above you shuffle uneasily. The spirit’s gaze snaps to a point across your shoulders and he holds up a hand, his grip tightening around the haft of his spear. “Hold, Muriel Vinshaw," he murmurs. “We are not alone. Something watches us from the shadows."</p>
-</div>
-
-A player with a passive Wisdom (Perception) score of 17 or higher sees a humanoid silhouette flicker in the trees before vanishing amidst the darkness. (The silhouette is Strahd, but cannot be recognized in the darkness.)
-
-> [!abstract]+ **Investigating the Silhouette**
-> If a player investigates the place where the silhouette appeared, read:
-> 
-> <hr>
-> 
-> Dead leaves crunch underfoot as you pass between the trees, and the thick mud squelches beneath your boots. There’s no sign of any living soul amidst the cold darkness, however, though you notice a faint, reddish light flickering in the distance, like a campfire obscured by branches and brambles.
-> 
-> <hr>
-> 
-> The light comes from Beucephalus, Strahd’s **nightmare.**
-> 
-> If the player moves toward or attempts to interact with the light, read:
-> 
-> <hr>
-> 
-> Suddenly, the ambient sounds of the forest - the whispering wind, the rustling leaves, even the distant hooting of an owl - go eerily silent. From the depths of the shadows, where the trees are thickest and the light dare not penetrate, comes a deep, lurking malevolence. 
-> 
-> The air seems to hum with tension, like the tendons of a beast waiting to pounce, and you cannot help but feel, to the very depths of your soul, that you are being watched by something powerful, old, and almost unfathomably patient.
-> 
-> And then—the sensation fades. The quiet sounds of the woods return. And, a heartbeat later, the crimson light flickers out.
-> 
-> <hr>
-> 
-> As the player moves to depart the clearing, read:
-> 
-> <hr>
-> 
-> You notice a faint glitter of cold, cerulean light from the forest floor, half-concealed by mulch and dimly illuminated by the little moonlight that pierces through the canopy.
-> 
-> <hr>
-> 
-> If the player investigates the light, read:
-> 
-> <hr>
-> 
->  As you sift through the underbrush, your fingers brush against something hard and smooth, half-buried in the soil.
->  
->  It appears to be a small statuette of a butterfly, no larger than the palm of your hand and carved from petrified wood, which is embedded with small, glittering blue minerals that seem to dance with captured moonlight. The figurine's wings are outstretched, as though caught in mid-flight.
-
-At Muriel’s request, Kavan can share the following information about the Forest Folk of Yester Hill:
+Once the players have introduced themselves, Muriel begins by informing Kavan that they’ve come to seek his knowledge of the druids of Yester Hill. At Muriel’s request, Kavan can share the following information about the Forest Folk of Yester Hill:
 
 * The druids of the Forest Folk have been more active lately, gathering berserkers from the northern basin and leading blights of the Gulthias Tree down to the lands below. They appear to have obtained a new leader: a dark-skinned woman clad in a white gown and a golden tiara, with piercing eyes and a pair of sharp fangs. Kavan believes her to be a mage, having seen her conjure strange lights and sounds. (This is Ludmilla Vilisevic, one of Strahd’s vampiric brides.)
 * Recently, the Forest Folk of Yester Hill—which Kavan’s people once called Sarmizeget—obtained something both new and yet incredibly old: an enchanted gemstone once belonging to Kavan's people that he thought lost long ago. The Forest Folk have constructed an enormous effigy of wood and earth atop the hill, within the great stone circle that serves as their meeting place, and placed the gemstone within the statue’s chest.
@@ -1135,7 +1088,7 @@ If the players successfully convince Strahd to allow them to fight the Forest Fo
 The final stretch of the trail that leads to Yester Hill is as described in <span class="citation">Y1. Trail (p. 197)</span>. However, read the following additional text when the players arrive at the base of Yester Hill:
 
 <div class="description">
-<p>A flash of brilliant viridian light suddenly flickers from within an enormous ring of stacked boulders atop the hilltop. As you watch, the light thrums like an unsteady heartbeat—even as it slowly, gradually, and yet steadily grows in intensity. You think you can faintly hear the distant sound of drumming echoing across the mountains from atop the hill.</p>
+<p>A flash of brilliant emerald light suddenly flickers from within an enormous ring of stacked boulders atop the hilltop. As you watch, the light thrums like an unsteady heartbeat—even as it slowly, gradually, and yet steadily grows in intensity. You think you can faintly hear the distant sound of drumming echoing across the mountains from atop the hill.</p>
 </div>
 
 When the players arrive at Yester Hill, if Strahd has accompanied them, he informs them that, if they wish to make good on their bet, they must first meet him at the point where the road meets the top of the hill. (He promises the players that he'll "make sure the festivities don't start without you," adding, "You must meet your opponent, after all.") If the players accept, he notes that he will "see them at the top," and vanishes astride Beucephalus.
@@ -1150,7 +1103,7 @@ The players can climb the trail straight to <span class="citation">Y3. Druids Ci
 The druids' circle is largely as described in <span class="citation">Y3. Druids' Circle (p. 197)</span>. However, add the following text to the end of the area's description:
 
 <div class="description">
-<p>A deep viridian light flashes from the statue's chest, and the swell of the drumbeat fills your ears. As you pass through the boulders, it's joined by the sound of chanting, which rumbles from a circle of thirteen figures that stand around the statue's base. Above the beast hides they wear, they bear antlers, wolfskins, and crowns crafted of wicked thorns, and crimson markings paint their faces a bloody hue.</p>
+<p>A deep emerald light flashes from the statue's chest, and the swell of the drumbeat fills your ears. As you pass through the boulders, it's joined by the sound of chanting, which rumbles from a circle of thirteen figures that stand around the statue's base. Above the beast hides they wear, they bear antlers, wolfskins, and crowns crafted of wicked thorns, and crimson markings paint their faces a bloody hue.</p>
 <p>A circle of thick, black roots three feet high surrounds the chanting figures, just beneath a thin layer of pale, drifting mist. Several figures bearing stone axes and quarterstaffs form a protective ring around it, their mouths and forearms bearing jagged crimson markings. A dark-skinned woman clad in a white gown stands at their head, her eyes fixed upon the statue and her chin lifted proudly.</p>
 </div>
 
@@ -1229,13 +1182,13 @@ As the conversation winds down, or if the players attack or attempt to bypass Lu
 
 <div class="description">
 <p>The dark storm roils overhead — and a single bolt of lightning lances down from the boiling clouds, surrounding the statue in a nimbus of white, blinding light. A deep groan seems to shudder through the very earth of the hill, and the wind around you whips up into a hot and heavy gale, tearing through the tall grass as it shrieks across the hilltop.</p>
-<p>The sounds of chanting and drum beats intensify—and sparks of deep, viridian energy begin to arc across the earth and toward the statue.</p>
+<p>The sounds of chanting and drum beats intensify—and sparks of deep, emerald energy begin to arc across the earth and toward the statue.</p>
 </div>
 
 The lightning strike signals the true beginning of the druids’ ritual. Once the ritual begins, the thirteen **druid naturalists** encircling the statue use their action each turn to continue chanting and beating their drums. While participating in the ritual, a druid can't move or use bonus actions or reactions.
 
 > [!info]+ **Completing the Ritual**
-> To complete the ritual, the druids must use their actions to chant for 12 rounds, with at least one of them chanting each round. At the end of each round, if fewer than twelve druids are able to chant (e.g., because some druids have died, or due to a *silence* spell), roll a d12. 
+> To complete the ritual, the druids must use their actions to chant for 12 rounds, with at least one of them chanting each round. At the end of each round, if fewer than twelve druids are able to chant (e.g., because some druids have broken concentration or died, or due to a *silence* spell), roll a d12. 
 > 
 > If the result is greater than the number of chanting druids that round, sparks of green lightning arc from the statue, shocking all creatures within the wall of roots. Each target must succeed on a DC 17 Constitution saving throw or take 7 (2d6) lightning damage and be dazed until the start of their next turn. (A dazed creature can move or take one action on its turn, not both. It also can’t take a bonus action or a reaction.)
 > 
@@ -1252,7 +1205,7 @@ The lightning strike signals the true beginning of the druids’ ritual. Once th
 > 
 > At the end of each hour that a player is infested by the tree’s roots, they must succeed on a DC 17 Constitution saving throw or take 1d6 necrotic damage. Their hit point maximum is reduced by an amount equal to the necrotic damage. This reduction lasts until the player finishes a long rest, and the player dies if this effect reduces their hit point maximum to 0.
 ## J5d. The Druidic Guards
-Immediately after the ritual begins, the two **druid assailants** and two **berserkers** work to prevent the players and Muriel from approaching the statue, by force if necessary. If she hasn’t already, Ludmilla retreats to the ritualists’ circle as soon as combat breaks out. As she does, she uses her action to create a *shroud of mist* with a 60-foot radius around the statue to cover her retreat. (See [[Arc J - The Stolen Gem#The Shroud of Mist|The Shroud of Mist]] below.) She then uses her bonus action to summon her **shroud of shadows*** (see below).
+Immediately after the ritual begins, the two **druid assailants** and two **berserkers** work to prevent the players and Muriel from approaching the statue, by force if necessary. If she hasn’t already, Ludmilla retreats to the ritualists’ circle as soon as combat breaks out. As she does, she uses her action to create a *shroud of mist* with a 60-foot radius around the statue to cover her retreat. (See [[Arc J - The Stolen Gem#The Shroud of Mist|The Shroud of Mist]] below.) She then uses her bonus action to summon her **shroud of shadows** (see below).
 <br>
 
 ![[Yester Hill Layout (Presentation) (1).png]]
@@ -1407,7 +1360,7 @@ A player can dissuade Muriel from attacking Ludmilla with a successful DC 25 Cha
 <p>With a shriek of rage and impotent fury, Muriel spreads her wings and launches into the air.</p>
 </div>
 
-Each time Muriel takes damage from Ludmilla's ***shroud of shadows*** feature, blood from her wounds spills onto the earth of Yester Hill below. Read:
+Each time Muriel takes piercing or slashing damage (e.g. from Ludmilla's ***shroud of shadows*** feature), blood from her wounds spills onto the earth of Yester Hill below. Read:
 
 <div class=description>
 <p>Muriel's blood pours onto the ground, forming crimson pools in the muddy earth. As you watch, small black roots extrude from the wall of roots and pierce the pools' surface, bulges of liquid traversing the roots' length as they drink greedily of the spilled blood.</p>
@@ -1437,11 +1390,11 @@ The statue is largely as described in <span class="citation">Y3. Druids' Circle 
 If the ritual is permanently disrupted (see **The Ritual Begins** above) or if the players retrieve the gem from the statue's chest, the ritual's destructive energy is unleashed upon the circle. Read:
 
 <div class="description">
-<p>Bolts of brilliant viridian lightning crackle across the statue's surface, and the air within the circle grows thick with ozone. All around you, the druids wail and gnash their teeth, casting down their drums and staffs as they fruitlessly work to free themselves of the roots that bind them to the black earth below. The wand-bearing druid flings his wand to the earth with a shrieked curse, then lifts the staff from his shoulders to the sky, chanting words of desperation and defiance. </p>
+<p>Bolts of brilliant emerald lightning crackle across the statue's surface, and the air within the circle grows thick with ozone. All around you, the druids wail and gnash their teeth, casting down their drums and staffs as they fruitlessly work to free themselves of the roots that bind them to the black earth below. The wand-bearing druid flings his wand to the earth with a shrieked curse, then lifts the staff from his shoulders to the sky, chanting words of desperation and defiance. </p>
 <p>The wind whips into a frenzied gale, screaming through your ears, as the bark of the statue begins to splinter and creak. The electric potential suffusing the air grows to a terrible peak around the statue, your flesh prickling with the energy impatiently waiting to be unleashed. </p>
 </div>
 
-In the round following the ritual's disruption, the following events occur:
+In the three rounds following the ritual's disruption, the following events occur:
 
 * On initiative count 20, the statue collapses. When this occurs, any player still climbing the statue must succeed on a DC 10 Dexterity saving throw or take 1d6 bludgeoning damage and fall prone 30 feet from the statue's base, in the direction of the stone circle's exit. In addition, Svarog, if still alive, takes 14 (4d6) bludgeoning damage and is knocked prone and restrained by the fallen statue.
 * On initiative count 10 of the following round, if any players remain within 30 feet of the statue, the **swarms of ravens** descend to carry them away, with a minimum of two swarms needed to carry a player of size Medium and a minimum of one swarm needed to carry a player of size Small or smaller.

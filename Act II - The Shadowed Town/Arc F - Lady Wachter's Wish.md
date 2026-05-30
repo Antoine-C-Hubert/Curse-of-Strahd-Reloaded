@@ -34,7 +34,7 @@ The envelope contains the following letter, with the blank filled with the name 
 <p>Lady Fiona Wachter</p>
 </div>
 
-If the players ask Urwin about Lady Wachter, he can share all of the information about her described in <span class="citation">Vallaki Lore (p. 96)</span>. He can also share that, according to town legend, Lady Wachter’s parents and elder brother were killed in a mysterious accident when she was a teenager. (Urwin, who only relocated to Vallaki ten years ago, can’t confirm or deny the story.)
+If the players ask Urwin about Lady Wachter, he can share all of the information about her described in <span class="citation">Vallaki Lore (p. 96)</span>. However, instead of describing Lady Wachter's "mad daughter," Urwin shares only that Lady Fiona has a daughter, Stella Wachter, who Lady Wachter has recently kept cloistered on the grounds of Wachterhaus for unknown reasons. He can also share that, according to town legend, Lady Wachter’s parents and elder brother were killed in a mysterious accident when she was a teenager. (Urwin, who only relocated to Vallaki ten years ago, can’t confirm or deny the story.)
 # F2. Wachterhaus
 <span class="citation"><em>This scene takes place in Chapter 5: Area N4.</em></span>
 
@@ -343,7 +343,7 @@ If Izek is undisturbed, he leaves Lake Zarovich and returns to the burgomaster�
 
 If the players ask the truth behind the Ireena-shaped doll, Izek snarls that the doll is none of their business.
 
-If Ireena has accompanied the players to the lake, Izek instructs her to stand aside while he "teaches these worms some manners." If defied, he snarls in rage.
+If Ireena has accompanied the players to the lake, Izek instructs her to stand aside while he "teaches these worms some manners." If defied, he snarls in rage and attacks.
 
 ![[Lake-Zarovich_Izek-Encounter_4k_NoGrid_40x30_102PPI_Gloom_Fog.jpg]]
 
@@ -405,7 +405,7 @@ If Ireena has accompanied the players to the lake, Izek instructs her to stand a
 <p><strong><em>Second Phase.</em></strong> When Izek is reduced to 0 hit points, his arms and axe are engulfed in flames, the barbs on his fiendish arm grow longer and sharper, and his skin grows red and begins to smoke. His statistics are then instantly replaced by the statistics of his second form. His initiative count doesn’t change. Excess damage doesn't carry over to his new form, but he retains any conditions he had in his previous form.</p>
 <h3>Actions</h3>
 <p><strong><em>Multiattack.</em></strong> Izek makes two attacks.</p>
-<p><strong><em>Silvered Battleaxe.</em></strong> <em>Melee weapon attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (1d10 + 5) slashing damage and Izek can push the target up to 5 ft. away.</p>
+<p><strong><em>Silvered Battleaxe.</em></strong> <em>Melee weapon attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (1d10 + 5) slashing damage and Izek can push the target up to 5 ft. away.</p>
 <p><strong><em>Flame Hurl.</em></strong> <em>Ranged spell attack:</em> +5 to hit, range 60 ft., one target. <em>Hit:</em> 7 (2d6) fire damage.</p>
 <h3>Bonus Actions</h3>
 <p><strong><em>Slicing Whirl.</em></strong> Izek whirls his battleaxe around him. Each creature within a 5-foot radius must succeed on a DC 16 Dexterity saving throw or take 5 (2d4) slashing damage and fall prone. A creature that succeeds on the saving throw takes half damage and doesn’t fall prone.</p>
@@ -462,8 +462,8 @@ If Ireena has accompanied the players to the lake, Izek instructs her to stand a
 <hr>
 <h3>Actions</h3>
 <p><strong><em>Multiattack.</em></strong> Izek makes two melee attacks.</p>
-<p><strong><em>Silvered Battleaxe.</em></strong> <em>Melee weapon attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (1d8 + 5) slashing damage plus 2 (1d4) fire damage.</p>
-<p><strong><em>Burning Punch.</em></strong> <em>Melee weapon attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d4 + 5) bludgeoning damage plus 2 (1d4) fire damage, and Izek can push the target up to 5 ft. away. On a critical hit, the target must also succeed on a DC 16 Constitution saving throw or be dazed until the start of Izek’s next turn. (That creature can move or take one action on its turn, not both. It also can’t take a bonus action or a reaction.)</p>
+<p><strong><em>Silvered Battleaxe.</em></strong> <em>Melee weapon attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d8 + 5) slashing damage plus 2 (1d4) fire damage.</p>
+<p><strong><em>Burning Punch.</em></strong> <em>Melee weapon attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (1d4 + 5) bludgeoning damage plus 2 (1d4) fire damage, and Izek can push the target up to 5 ft. away. On a critical hit, the target must also succeed on a DC 16 Constitution saving throw or be dazed until the start of Izek’s next turn. (That creature can move or take one action on its turn, not both. It also can’t take a bonus action or a reaction.)</p>
 <p><strong><em>Flaming Wave.</em></strong> A wave of flames sweeps out from Izek in a line that is 60 feet long and 5 feet wide. Each creature in the line must make a DC 13 Dexterity saving throw or take 11 (2d10) fire damage. The fire ignites flammable objects in the area that aren't being worn or carried.</p>
 <h3>Bonus Actions</h3>
 <p><strong><em>Flame Burst.</em></strong> Izek slams his battleaxe into the ground, causing a torrent of flames to swirl around him. Each creature within 5 feet must make a DC 13 Dexterity saving throw or take 7 (2d6) fire damage.</p>
@@ -561,7 +561,7 @@ Lady Wachter can share that, according to the book, Vladislav was a Wachter and 
 >
 > When Lady Wachter’s speech is complete, she returns to Wachterhaus and there establishes her seat of government. She summons each of Vallaki’s town guards and meets with them personally, reassuring them that their employment will be protected and their salaries maintained. She further recruits one dozen members of her cult to serve as “deputy guards” to assist in patrolling the walls and keeping the peace throughout the town.
 >
-> Lady Wachter then commands the guards to open the gates to the Barovian refugees, resettling them in the town square until such a time as housing can be found. (Any Barovian refugees addicted to dream pastries continue to visit the eastern Morning Gate daily to purchase fresh pastries from Morgantha, and are joined by a number of Vallakians interested in her wares.) Any Vistani who wish to are also free to enter the town as they choose.
+> Lady Wachter then commands the guards to open the gates to the Barovian refugees, resettling them in the town square until such a time as housing can be found. (Any Barovian refugees addicted to dream pastries continue to visit the eastern Morning Gate daily hoping to purchase fresh pastries from Morgantha, and are joined by a number of Vallakians interested in her wares. However, Morgantha hasn’t visited the town since the refugee Franz sold her his children ahead of [[Arc H - The Lost Soul]].) Any Vistani who wish to are also free to enter the town as they choose.
 >
 > Baron Vargas Vallakovich and his family are placed under unofficial house arrest, with the mansion guarded by two of Lady Wachter’s **cultists** at all times—one guarding the front door and one guarding the back. The cultists assure Baron Vallakovich that they are present for his protection, both from ungrateful townsfolk and servants of Strahd, but are under strict orders to bar him and his family from exiting the manor. Victor Vallakovich, the Baron’s son, is mildly perturbed by this development, but takes no action against it.
 >

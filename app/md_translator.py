@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
+import anthropic
 import glob
-import openai
 import os
 import sys
 import time
@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 from pathlib import Path
 from tqdm import tqdm
 
-# Set your OpenAI API key from environment variable
-# export OPENAI_API_KEY="your-api-key"
+# Set your Anthropic API key from environment variable
+# export ANTHROPIC_API_KEY="your-api-key"
 
 # Load .env from project root
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -22,14 +22,14 @@ TRANSLATIONS_DIR = os.path.join(project_root, "translations")
 SPLITS_DIR = os.path.join(TRANSLATIONS_DIR, "splits")
 SPLITS_TRANSLATED_DIR = os.path.join(TRANSLATIONS_DIR, "splits_translated")
 
-def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
+def translate_markdown_files(input_dir, output_dir=None, model="claude-sonnet-4-6"):
     """
-    Translate markdown files from English to French using OpenAI's API.
-    
+    Translate markdown files from English to French using the Claude API.
+
     Args:
         input_dir (str): Directory containing the markdown files to translate
         output_dir (str, optional): Directory to save the translated files
-        model (str, optional): OpenAI model to use for translation
+        model (str, optional): Claude model to use for translation
     """
     # If input_dir is just the folder name (not a full path), use SPLITS_DIR as the base
     if not os.path.isabs(input_dir) and not input_dir.startswith('./'):
@@ -56,14 +56,14 @@ def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
     print(f"Found {len(markdown_files)} markdown files to translate")
     
     # Get API key from environment
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
-        print("Error: OPENAI_API_KEY environment variable not set")
-        print("Please set it with: export OPENAI_API_KEY='your-api-key'")
+        print("Error: ANTHROPIC_API_KEY environment variable not set")
+        print("Please set it with: export ANTHROPIC_API_KEY='your-api-key'")
         sys.exit(1)
-    
-    # Initialize OpenAI client
-    client = openai.OpenAI(api_key=api_key)
+
+    # Initialize Anthropic client (retries 429/5xx with exponential backoff)
+    client = anthropic.Anthropic(api_key=api_key, max_retries=5)
     
     # Translate each file
     for file_path in tqdm(markdown_files, desc="Translating files"):
@@ -105,40 +105,36 @@ def translate_markdown_files(input_dir, output_dir=None, model="gpt-4o"):
         """
         
         user_prompt = f"Translate this English markdown text to French, preserving all formatting:\n\n{content}"
-        
-        # Call the OpenAI API with exponential backoff for rate limiting
-        max_retries = 5
-        backoff_factor = 2
-        for attempt in range(max_retries):
-            try:
-                response = client.chat.completions.create(
-                    model=model,
-                    messages=[
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": user_prompt}
-                    ],
-                    temperature=0.1,  # Lower temperature for more consistent translations
-                )
-                
-                # Extract the translated text
-                translated_content = response.choices[0].message.content
-                
-                # Save the translated content
-                with open(output_file_path, 'w', encoding='utf-8') as f:
-                    f.write(translated_content)
-                
-                # Avoid hitting rate limits
-                time.sleep(1)
-                break
-                
-            except (openai.RateLimitError, openai.APIError) as e:
-                wait_time = backoff_factor ** attempt
-                if attempt < max_retries - 1:
-                    print(f"API error: {e}. Retrying in {wait_time} seconds...")
-                    time.sleep(wait_time)
-                else:
-                    print(f"Failed to translate {file_name} after {max_retries} attempts")
-                    raise
+
+        # Call the Claude API (streaming avoids HTTP timeouts on long sections;
+        # the client itself retries rate limits and server errors)
+        try:
+            with client.messages.stream(
+                model=model,
+                max_tokens=16000,
+                temperature=0.1,  # Lower temperature for more consistent translations
+                system=system_prompt,
+                messages=[
+                    {"role": "user", "content": user_prompt}
+                ],
+            ) as stream:
+                response = stream.get_final_message()
+
+            # Extract the translated text
+            translated_content = "".join(
+                block.text for block in response.content if block.type == "text"
+            )
+
+            # Save the translated content
+            with open(output_file_path, 'w', encoding='utf-8') as f:
+                f.write(translated_content)
+
+            # Avoid hitting rate limits
+            time.sleep(1)
+
+        except (anthropic.RateLimitError, anthropic.APIStatusError) as e:
+            print(f"Failed to translate {file_name}: {e}")
+            raise
     
     print(f"All files translated and saved to {output_dir}")
     return output_dir
@@ -150,7 +146,7 @@ if __name__ == "__main__":
         print(f"Example: {sys.argv[0]} 'Arc C - Into the Valley'")
         print(f"The input directory will be looked up in translations/splits/")
         print(f"The output will be saved to translations/splits_translated/ by default")
-        print(f"Example with options: {sys.argv[0]} 'Arc C - Into the Valley' 'custom_output_dir' 'gpt-4o'")
+        print(f"Example with options: {sys.argv[0]} 'Arc C - Into the Valley' 'custom_output_dir' 'claude-sonnet-4-6'")
         sys.exit(1)
     
     input_dir = sys.argv[1]
@@ -170,11 +166,11 @@ if __name__ == "__main__":
         output_dir = sys.argv[2]
     
     # Get model (optional)
-    model = "gpt-4o"
+    model = "claude-sonnet-4-6"
     if len(sys.argv) > 3 and sys.argv[3]:
         model = sys.argv[3]
-    
-    print(f"Using OpenAI model: {model}")
+
+    print(f"Using Claude model: {model}")
     
     # Translate all files
     french_dir = translate_markdown_files(input_dir, output_dir, model)

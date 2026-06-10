@@ -16,10 +16,12 @@ The repository contains four main Python scripts in the `/app` directory for han
    - Usage: `python app/md_splitter.py <markdown_file>`
    - Files are saved to `translations/splits/<filename>/`
 
-2. **md_translator.py**: Translates markdown files from English to French using OpenAI API
+2. **md_translator.py**: Translates markdown files from English to French using the Claude API
    - Usage: `python app/md_translator.py <input_directory> [output_directory] [model]`
    - By default, reads from `translations/splits/` and outputs to `translations/splits_translated/`
-   - Requires an OpenAI API key set as `OPENAI_API_KEY` environment variable
+   - Default model: `claude-sonnet-4-6`
+   - Requires an Anthropic API key set as `ANTHROPIC_API_KEY` environment variable
+   - Skips already-translated files, so interrupted runs can be resumed
 
 3. **md_concatenator.py**: Reassembles translated split files back into complete documents
    - Usage: `python app/md_concatenator.py [base_directory]`
@@ -32,6 +34,8 @@ The repository contains four main Python scripts in the `/app` directory for han
      - `-s, --style STYLE`: CSS stylesheet for PDF styling (in the templates directory)
      - `-r, --recursive`: Process directories recursively
      - `-m, --merge`: Merge all input files into a single PDF
+     - `--cleanup`: Clean up temporary directories before starting
+     - `--even-pages`: Add a blank page at the end if total page count is odd
 
 ## Translation Scripts
 
@@ -48,9 +52,11 @@ Options:
   -h, --help               Show this help message
   -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)
                            Default: all
-  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)
+  -m, --model MODEL        Specify Claude model (default: claude-sonnet-4-6)
   -c, --css FILE           Specify CSS file for PDF styling (default: templates/publish_two_columns.css)
   -o, --output FILE        Specify output PDF file name (without extension)
+  -e, --even-pages         Add a blank page at the end if total page count is odd (default)
+  --no-even-pages          Don't add a blank page if the page count is odd
 ```
 
 ### Reference Materials Script
@@ -68,9 +74,11 @@ Targets:
 Options:
   -h, --help               Show this help message
   -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)
-  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)
+  -m, --model MODEL        Specify Claude model (default: claude-sonnet-4-6)
   -c, --css FILE           Specify CSS file for PDF styling
   -o, --output FILE        Specify output PDF file name (creates combined PDF)
+  -e, --even-pages         Add a blank page at the end if total page count is odd (default)
+  --no-even-pages          Don't add a blank page if the page count is odd
 ```
 
 ### Comprehensive Batch Processing
@@ -91,6 +99,14 @@ Options:
   --no-guide-merge        Skip merging the main guide into a single PDF
   --no-reference-merge    Skip merging reference materials into combined PDFs
 ```
+
+The `guide` target reads `files_list.txt` at the repository root, which lists the
+Act/Arc markdown files in reading order. **When an arc is added or renamed, update
+both `files_list.txt` and the hardcoded PDF order in `scripts/merge_pdfs.sh`**
+(and, for new Appendices, the list in `scripts/merge_reference_pdfs.sh`).
+
+A simpler wrapper, `batch_run.sh`, runs `run.sh` for every entry in `files_list.txt`
+with default settings (no merging).
 
 ## Workflow Examples
 
@@ -152,9 +168,9 @@ The CSS files for styling are stored in the `templates/` directory:
 
 ## Environment Setup
 
-1. Create a `.env` file in the root directory with your OpenAI API key:
+1. Create a `.env` file in the root directory with your Anthropic API key:
    ```
-   OPENAI_API_KEY=your-api-key-here
+   ANTHROPIC_API_KEY=your-api-key-here
    ```
 
 2. Install the required Python dependencies:
@@ -163,8 +179,13 @@ The CSS files for styling are stored in the `templates/` directory:
    ```
 
 Required Python packages:
-- For translation: `openai`, `python-dotenv`, `tqdm`
-- For PDF generation: `markdown`, `weasyprint`, `tqdm`
+- For translation: `anthropic`, `python-dotenv`, `tqdm`
+- For PDF generation: `markdown`, `weasyprint`, `PyPDF2`, `tqdm`
+
+System tools used by the merge scripts:
+- `pdftk` - required for PDF merging
+- `wkhtmltopdf` - optional, nicer title pages (falls back to pdftk)
+- `enscript` + `ghostscript` (`ps2pdf`) - optional, page numbers on the merged guide
 
 ## Repository Structure
 
@@ -200,11 +221,11 @@ The translation process creates several types of output files:
 ### Individual PDFs
 - Each markdown file produces a separate PDF in `translations/pdf/`
 - Individual Chapter files: `Character Creation.pdf`, `Session Zero.pdf`, etc.
-- Individual Appendices files: `Amber Shards.pdf`, `Glossary.pdf`, etc.
+- Individual Appendices files: `Amber Shards.pdf`, `Bestiary.pdf`, `Glossary.pdf`, etc.
 - Campaign guide files: `Act I Summary.pdf`, `Arc A - Escape From Death House.pdf`, etc.
 
 ### Merged PDFs (stored in `translations/`)
-- **Campaign_Guide_Complete.pdf** - Complete main campaign guide (from `merge_pdfs.sh`)
+- **Guide_Complet.pdf** - Complete main campaign guide (default name when running `merge_pdfs.sh` directly; `batch_run_all.sh` names it `Campaign_Guide_Complete.pdf`)
 - **Reference_Chapters.pdf** - All Chapter materials combined (from `merge_reference_pdfs.sh`)
 - **Reference_Appendices.pdf** - All Appendices combined (from `merge_reference_pdfs.sh`)
 - Custom named PDFs when using the `-o` option with various scripts

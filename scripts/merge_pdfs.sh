@@ -301,6 +301,7 @@ merge_default_pdfs() {
         "Arc F - Lady Wachter's Wish.pdf"
         "Arc G - The Strazni Siblings.pdf"
         "Arc H - The Lost Soul.pdf"
+        "Arc I - The Walls of Krezk.pdf"
         "Act III Summary.pdf"
         "Arc J - The Stolen Gem.pdf"
         "Arc K - The Fallen Abbey.pdf"

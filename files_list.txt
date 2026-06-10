@@ -8,11 +8,13 @@ Act II - The Shadowed Town/Arc E - The Missing Vistana.md
 Act II - The Shadowed Town/Arc F - Lady Wachter's Wish.md
 Act II - The Shadowed Town/Arc G - The Strazni Siblings.md
 Act II - The Shadowed Town/Arc H - The Lost Soul.md
+Act II - The Shadowed Town/Arc I - The Walls of Krezk.md
 Act III - The Broken Land/Act III Summary.md
 Act III - The Broken Land/Arc J - The Stolen Gem.md
 Act III - The Broken Land/Arc K - The Fallen Abbey.md
 Act III - The Broken Land/Arc L - The Den of Wolves.md
 Act III - The Broken Land/Arc M - The Dragon's Manor.md
+Act III - The Broken Land/Arc N - Tales of Vallaki.md
 Act III - The Broken Land/Arc O - Dinner with the Devil.md
 Act III - The Broken Land/Arc P - Ravenloft Heist.md
 Act III - The Broken Land/Arc Q - A Shining Beacon.md
@@ -21,4 +23,5 @@ Act IV - Secrets of the Ancient/Arc R - Trials of the Mountain.md
 Act IV - Secrets of the Ancient/Arc S - A Sword of Sunlight.md
 Act IV - Secrets of the Ancient/Arc T - The Three Fanes.md
 Act IV - Secrets of the Ancient/Arc U - Dreams of Dawn.md
+Act IV - Secrets of the Ancient/Epilogue.md
 

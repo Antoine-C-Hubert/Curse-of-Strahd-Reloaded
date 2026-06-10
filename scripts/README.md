@@ -12,9 +12,13 @@ This directory contains scripts for translating and processing the Curse of Stra
 - **`merge_reference_pdfs.sh`** - Merge reference materials into combined PDFs
 
 ### Batch Processing
-- **`batch_run.sh`** - Process all files listed in files_list.txt
+- **`batch_run.sh`** - Process all files listed in `files_list.txt` (repository root)
 - **`batch_run_all.sh`** - Comprehensive script to process everything
-- **`merge_pdfs.sh`** - Merge main campaign guide PDFs
+- **`merge_pdfs.sh`** - Merge main campaign guide PDFs (default output: `Guide_Complet.pdf`)
+
+> `files_list.txt` (repository root) drives the main-guide batch processing, and
+> `merge_pdfs.sh` / `merge_reference_pdfs.sh` contain hardcoded PDF orderings.
+> When an Act/Arc or Appendix is added or renamed, update those lists too.
 
 ## Translation Workflow
 
@@ -110,7 +114,7 @@ python app/md_splitter.py <markdown_file>
 ```
 
 ### app/md_translator.py
-Translates markdown files from English to French using OpenAI API.
+Translates markdown files from English to French using the Claude API (default model: `claude-sonnet-4-6`).
 ```bash
 python app/md_translator.py <input_directory> [output_directory] [model]
 ```
@@ -129,9 +133,9 @@ python app/md_to_pdf.py [OPTIONS] input
 
 ## Dependencies
 
-- Python packages: `openai`, `python-dotenv`, `tqdm`, `markdown`, `weasyprint`
-- System tools: `pdftk` (for PDF merging), `wkhtmltopdf` (optional, for better title pages)
-- OpenAI API key in `.env` file
+- Python packages: `anthropic`, `python-dotenv`, `tqdm`, `markdown`, `weasyprint`, `PyPDF2`
+- System tools: `pdftk` (for PDF merging), `wkhtmltopdf` (optional, for better title pages), `enscript` + `ghostscript` (optional, for page numbers on the merged guide)
+- Anthropic API key (`ANTHROPIC_API_KEY`) in `.env` file
 
 ## Example Workflows
 

@@ -26,7 +26,7 @@ show_help() {
     echo "  -h, --help               Show this help message"
     echo "  -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)"
     echo "                           Default: all"
-    echo "  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)"
+    echo "  -m, --model MODEL        Specify Claude model (default: claude-sonnet-4-6)"
     echo "  -c, --css FILE           Specify CSS file for PDF styling (default: publish_two_columns.css)"
     echo "  --no-guide-merge         Skip merging the main guide into a single PDF"
     echo "  --no-reference-merge     Skip merging reference materials into combined PDFs"
@@ -132,17 +132,17 @@ process_reference() {
     if [ "$merge_reference" = true ]; then
         case "$target" in
             chapters)
-                output_name="Chapters_Reference"
+                output_name="Reference_Chapters"
                 ;;
             appendices)
-                output_name="Appendices_Reference"
+                output_name="Reference_Appendices"
                 ;;
             reference)
                 # Process both separately
                 echo "Processing chapters..."
-                "$SCRIPT_DIR/run_reference.sh" -s "$step" -m "$model" -c "$css_file" -o "Chapters_Reference" chapters
+                "$SCRIPT_DIR/run_reference.sh" -s "$step" -m "$model" -c "$css_file" -o "Reference_Chapters" chapters
                 echo "Processing appendices..."
-                "$SCRIPT_DIR/run_reference.sh" -s "$step" -m "$model" -c "$css_file" -o "Appendices_Reference" appendices
+                "$SCRIPT_DIR/run_reference.sh" -s "$step" -m "$model" -c "$css_file" -o "Reference_Appendices" appendices
                 return 0
                 ;;
         esac
@@ -162,7 +162,7 @@ process_reference() {
 main() {
     local target="all"
     local step="all"
-    local model="gpt-4o"
+    local model="claude-sonnet-4-6"
     local css_file="publish_two_columns.css"
     local merge_guide=true
     local merge_reference=true

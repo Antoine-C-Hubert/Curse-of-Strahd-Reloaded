@@ -83,6 +83,7 @@ get_appendices_pdfs() {
     # Define expected appendices PDF names
     local appendices_files=(
         "Amber Shards.pdf"
+        "Bestiary.pdf"
         "Glossary.pdf"
         "Non-Player Characters.pdf"
     )

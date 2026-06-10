@@ -31,7 +31,7 @@ show_help() {
     echo "  -h, --help               Show this help message"
     echo "  -s, --step STEP          Specify which step to run (split,translate,concat,pdf,all)"
     echo "                           Default: all"
-    echo "  -m, --model MODEL        Specify OpenAI model (default: gpt-4o)"
+    echo "  -m, --model MODEL        Specify Claude model (default: claude-sonnet-4-6)"
     echo "  -c, --css FILE           Specify CSS file for PDF styling (default: publish_two_columns.css)"
     echo "  -o, --output FILE        Specify output PDF file name (without extension)"
     echo "  -e, --even-pages         Add a blank page at the end if total page count is odd (default)"
@@ -59,13 +59,13 @@ check_env_file() {
         echo "Warning: .env file not found in project root."
         echo "If you're running translation steps, you'll need an OpenAI API key."
         echo "Create a .env file at: $PROJECT_ROOT/.env"
-        echo "Example: echo 'OPENAI_API_KEY=your-api-key-here' > $PROJECT_ROOT/.env"
+        echo "Example: echo 'ANTHROPIC_API_KEY=your-api-key-here' > $PROJECT_ROOT/.env"
     fi
 }
 
 # Check if dependencies are installed
 check_dependencies() {
-    python3 -c "import openai, dotenv, tqdm, markdown, weasyprint" 2>/dev/null || {
+    python3 -c "import anthropic, dotenv, tqdm, markdown, weasyprint" 2>/dev/null || {
         echo "Error: Required Python packages not found."
         echo "Please install them using: pip install -r $PROJECT_ROOT/requirements.txt"
         exit 1
@@ -286,7 +286,7 @@ process_target() {
 main() {
     local target="all"
     local step="all"
-    local model="gpt-4o"
+    local model="claude-sonnet-4-6"
     local css_file="$PROJECT_ROOT/templates/publish_two_columns.css"
     local output_name=""
     local even_pages=true
